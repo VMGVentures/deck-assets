@@ -59,84 +59,99 @@
             text-align: center;
         }
 
-        /* Tab Navigation Styles */
-        .tab-container {
+        /* Accordion Styles */
+        .accordion-container {
             width: 100%;
         }
 
-        .tab-nav {
-            display: flex;
-            border-bottom: 2px solid #e2e8f0;
-            margin-bottom: 2rem;
+        .accordion-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .tab-button {
-            flex: 1;
-            padding: 1rem;
-            background: none;
-            border: none;
+        .accordion-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .accordion-header {
+            padding: 1.5rem 4rem 1.5rem 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             cursor: pointer;
             transition: all 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
         }
 
-        .tab-icon {
-            font-size: 2rem;
-            transition: all 0.3s ease;
-            filter: grayscale(100%) opacity(0.6);
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
         }
 
-        .tab-button:hover .tab-icon {
-            transform: scale(1.2);
-            filter: grayscale(0%) opacity(0.8);
+        .accordion-header.active {
+            background: linear-gradient(135deg, #ea580c, #f97316);
+            color: white;
         }
 
-        .tab-button.active .tab-icon {
-            transform: scale(1.3);
-            filter: grayscale(0%) opacity(1);
+        .accordion-header.active .accordion-title {
+            background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: white;
+            color: white;
+            flex: 1;
+            word-wrap: break-word;
+            hyphens: auto;
         }
 
-        .tab-button:hover {
-            background: rgba(249, 115, 22, 0.05);
-        }
-
-        .tab-button.active {
-            font-weight: 600;
-        }
-
-        .tab-button.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ea580c, #f97316);
-            border-radius: 2px;
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .tab-content-title {
+        .accordion-title {
             font-size: 1.5rem;
             font-weight: 600;
             background: linear-gradient(135deg, #ea580c, #f97316);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            text-align: center;
             line-height: 1.3;
+            margin: 0;
+            flex: 1;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .accordion-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            min-width: 1.2rem;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-content.active {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .accordion-content-inner {
+            padding: 2rem;
+            background: white;
         }
 
         @keyframes fadeIn {
@@ -144,7 +159,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .tab-content img {
+        .accordion-content img {
             width: 100%;
             height: auto;
             border-radius: 12px;
@@ -202,12 +217,20 @@
                 padding: 1.5rem;
             }
             
-            .tab-button {
-                padding: 0.75rem;
+            .accordion-header {
+                padding: 1rem 3rem 1rem 1rem;
             }
             
-            .image-placeholder {
-                height: 200px;
+            .accordion-title {
+                font-size: 1.2rem;
+            }
+            
+            .accordion-content-inner {
+                padding: 1.5rem;
+            }
+            
+            .accordion-icon {
+                right: 1rem;
             }
         }
     </style>
@@ -216,47 +239,56 @@
     <div class="container">
         <h1 class="title">The Problem</h1>
         
-        <!-- First Card: Tabbed Navigation with Images -->
+        <!-- First Card: Accordion with Images -->
         <div class="card">
-            <div class="tab-container">
-                <div class="tab-nav">
-                    <button class="tab-button active" onclick="switchTab(0)">
-                        <span class="tab-icon">🧱</span>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <button class="accordion-header active" onclick="toggleAccordion(0)">
+                        <h3 class="accordion-title">Capital markets technology was not built for scale</h3>
+                        <span class="accordion-icon">▼</span>
                     </button>
-                    <button class="tab-button" onclick="switchTab(1)">
-                        <span class="tab-icon">🌍</span>
-                    </button>
-                    <button class="tab-button" onclick="switchTab(2)">
-                        <span class="tab-icon">☰</span>
-                    </button>
-                </div>
-                
-                <div class="tab-content active" id="tab-0">
-                    <h3 class="tab-content-title">Capital markets technology was not built for scale</h3>
-                    <div style="width: 100%; text-align: center;">
-                        <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-01.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 500px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-                        <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
-                            Image failed to load. The hosting service may be blocking embedding.
+                    <div class="accordion-content active" id="accordion-0">
+                        <div class="accordion-content-inner">
+                            <div style="width: 100%; text-align: center;">
+                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-01.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                                <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
+                                    Image failed to load. The hosting service may be blocking embedding.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="tab-content" id="tab-1">
-                    <h3 class="tab-content-title">To engage with a Vendor today is to engage in their full technology stack</h3>
-                    <div style="width: 100%; text-align: center;">
-                        <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-02.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 500px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-                        <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
-                            Image failed to load. The hosting service may be blocking embedding.
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(1)">
+                        <h3 class="accordion-title">To engage with a Vendor today is to engage in their full technology stack</h3>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content" id="accordion-1">
+                        <div class="accordion-content-inner">
+                            <div style="width: 100%; text-align: center;">
+                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-02.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                                <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
+                                    Image failed to load. The hosting service may be blocking embedding.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="tab-content" id="tab-2">
-                    <h3 class="tab-content-title">There was a brief attempt to organize the stack many years ago, but it still remained connected</h3>
-                    <div style="width: 100%; text-align: center;">
-                        <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-03.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 500px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-                        <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
-                            Image failed to load. The hosting service may be blocking embedding.
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(2)">
+                        <h3 class="accordion-title">There was a brief attempt to organize the stack many years ago, but it still remained connected</h3>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content" id="accordion-2">
+                        <div class="accordion-content-inner">
+                            <div style="width: 100%; text-align: center;">
+                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-03.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                                <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
+                                    Image failed to load. The hosting service may be blocking embedding.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -293,17 +325,23 @@
     </div>
 
     <script>
-        function switchTab(tabIndex) {
-            // Remove active class from all tabs and content
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
+        function toggleAccordion(accordionIndex) {
+            // Get all accordion headers and contents
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            const accordionContents = document.querySelectorAll('.accordion-content');
             
-            tabButtons.forEach(button => button.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
+            // Check if the clicked accordion is already active
+            const isCurrentlyActive = accordionHeaders[accordionIndex].classList.contains('active');
             
-            // Add active class to selected tab and content
-            tabButtons[tabIndex].classList.add('active');
-            document.getElementById(`tab-${tabIndex}`).classList.add('active');
+            // Close all accordions
+            accordionHeaders.forEach(header => header.classList.remove('active'));
+            accordionContents.forEach(content => content.classList.remove('active'));
+            
+            // If the clicked accordion wasn't active, open it
+            if (!isCurrentlyActive) {
+                accordionHeaders[accordionIndex].classList.add('active');
+                accordionContents[accordionIndex].classList.add('active');
+            }
         }
     </script>
 </body>
