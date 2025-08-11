@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMEGA Protocol - Interactive Demo</title>
+    <title>VMG Ventures - Deck Assets</title>
     <style>
         * {
             margin: 0;
@@ -12,275 +12,149 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
+            padding: 2rem;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         .header {
             text-align: center;
-            color: #333;
-            margin-bottom: 40px;
+            margin-bottom: 4rem;
         }
 
-        .header h1 {
-            font-size: 3rem;
+        .title {
+            color: #1a202c;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .header p {
-            font-size: 1.2rem;
+        .subtitle {
+            color: #4a5568;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
         }
 
-        .demo-grid {
+        .intro {
+            color: #2d3748;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pages-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
+        .page-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
+        .page-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: inherit;
         }
 
-        .card h2 {
-            color: #4a9d4e;
-            background: linear-gradient(135deg, #4a9d4e 0%, #5fb562 50%, #4a9d4e 100%);
+        .page-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #ea580c, #f97316, #fb923c);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .pillar-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .exchange { background: #28a745; }
-        .governance { background: #007bff; }
-        .access { background: #ffc107; color: #333 !important; }
-
-        .architecture {
-            grid-column: 1 / -1;
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
-        }
-
-        .architecture-diagram {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .pillar-box {
-            padding: 20px;
-            border-radius: 12px;
+            margin-bottom: 1rem;
             text-align: center;
+        }
+
+        .page-description {
+            color: #4a5568;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .page-features li {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
             position: relative;
         }
 
-        .pillar-box h3 {
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .pillar-details {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .workflow-demo {
-            grid-column: 1 / -1;
-        }
-
-        .workflow-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .step {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #FF1493;
-            position: relative;
-        }
-
-        .step-number {
+        .page-features li::before {
+            content: '→';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            background: #FF1493;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            left: 0;
+            color: #ea580c;
             font-weight: bold;
-            font-size: 0.9rem;
         }
 
-        .policy-demo {
-            background: #1a1a1a;
-            color: #00ff00;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .policy-demo::before {
-            content: 'REGO POLICY ENGINE';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: #1a1a1a;
-            padding: 0 10px;
-            font-size: 0.8rem;
-            color: #FF1493;
-        }
-
-        .interactive-section {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
-        }
-
-        .controls {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            background: #FF1493;
+        .cta {
+            background: linear-gradient(135deg, #ea580c, #f97316);
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        button:hover {
-            background: #e91e63;
-            transform: translateY(-2px);
-        }
-
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .result-panel {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-            min-height: 100px;
-        }
-
-        .success { border-left: 4px solid #28a745; }
-        .error { border-left: 4px solid #dc3545; }
-        .info { border-left: 4px solid #17a2b8; }
-
-        select, input {
-            padding: 10px;
-            border: 2px solid #e5e5e5;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .data-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 20px 0;
-            padding: 20px;
-            background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
-            border-radius: 8px;
-        }
-
-        .flow-arrow {
-            font-size: 2rem;
-            color: #FF1493;
-        }
-
-        .entity {
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
             text-align: center;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            min-width: 120px;
+            width: 100%;
+        }
+
+        .cta:hover {
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
         }
 
         @media (max-width: 768px) {
-            .demo-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .demo-grid {
-                grid-template-columns: 1fr 1fr;
+            .title {
+                font-size: 2.5rem;
             }
             
-            .architecture-diagram {
+            .pages-grid {
                 grid-template-columns: 1fr;
             }
             
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .controls {
-                flex-direction: column;
+            .page-card {
+                padding: 2rem;
             }
         }
     </style>
@@ -288,312 +162,61 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>OMEGA Protocol</h1>
-            <p><strong>O</strong>pen <strong>M</strong>arket <strong>E</strong>xchange, <strong>G</strong>overnance & <strong>A</strong>ccess</p>
+            <h1 class="title">VMG Ventures</h1>
+            <p class="subtitle">Deck Assets & Interactive Presentations</p>
+            <p class="intro">
+                Explore our comprehensive presentation materials that showcase the future of capital markets infrastructure. 
+                These interactive demos illustrate the problems with current systems, our innovative solutions, 
+                and the strategic approach to rebuilding financial technology from the ground up.
+            </p>
         </div>
 
-        <div class="architecture">
-            <h2>🏗️ Three-Pillar Architecture</h2>
-            <p>OMEGA separates concerns into three distinct pillars, each with specific responsibilities for data sovereignty and access control.</p>
-            
-            <div class="architecture-diagram">
-                <div class="pillar-box exchange">
-                    <h3>📊 EXCHANGE</h3>
-                    <div class="pillar-details">
-                        <p><strong>Data Plane</strong></p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Exchange API</li>
-                            <li>Data Contracts</li>
-                            <li>Data Storage</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="pillar-box governance">
-                    <h3>⚖️ GOVERNANCE</h3>
-                    <div class="pillar-details">
-                        <p><strong>Central Control</strong></p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Identity Management</li>
-                            <li>Default Policies</li>
-                            <li>OPA Engine</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="pillar-box access">
-                    <h3>🔐 ACCESS</h3>
-                    <div class="pillar-details">
-                        <p><strong>Participant Control</strong></p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Grant Portal</li>
-                            <li>Access API</li>
-                            <li>Custom ACLs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="pages-grid">
+            <a href="project/" class="page-card">
+                <div class="page-icon">🔍</div>
+                <h2 class="page-title">The Problem</h2>
+                <p class="page-description">
+                    An in-depth analysis of the fundamental issues plaguing today's capital markets technology infrastructure.
+                </p>
+                <ul class="page-features">
+                    <li>Interactive accordion presentation</li>
+                    <li>Visual diagrams and examples</li>
+                    <li>Market inefficiencies breakdown</li>
+                    <li>Current vendor lock-in issues</li>
+                </ul>
+                <div class="cta">Explore the Problem →</div>
+            </a>
 
-        <div class="demo-grid">
-            <div class="card">
-                <h2><span class="pillar-icon exchange">📊</span>Exchange Layer</h2>
-                <p>The data plane handles all market data through standardized contracts. Every piece of information flows through the Exchange API with strict schema validation.</p>
-                
-                <div class="policy-demo">
-// Example Exchange Data Contract<br>
-{<br>
-&nbsp;&nbsp;"dealId": "DEAL_2024_001",<br>
-&nbsp;&nbsp;"bookrunner": "JPMorganChase",<br>
-&nbsp;&nbsp;"issuer": "Tesla_Inc",<br>
-&nbsp;&nbsp;"amount": 500000000,<br>
-&nbsp;&nbsp;"status": "active"<br>
-}
-                </div>
-            </div>
+            <a href="protocol/" class="page-card">
+                <div class="page-icon">⚙️</div>
+                <h2 class="page-title">OMEGA Protocol</h2>
+                <p class="page-description">
+                    Interactive demonstration of the OMEGA Protocol architecture and its three-pillar approach to market infrastructure.
+                </p>
+                <ul class="page-features">
+                    <li>Three-pillar architecture overview</li>
+                    <li>Interactive policy demonstrations</li>
+                    <li>Real-time authorization workflow</li>
+                    <li>Data sovereignty controls</li>
+                </ul>
+                <div class="cta">Discover OMEGA →</div>
+            </a>
 
-            <div class="card">
-                <h2><span class="pillar-icon governance">⚖️</span>Governance Layer</h2>
-                <p>Central policies define market-wide defaults. The OPA engine evaluates every request against these rules plus participant-specific overrides.</p>
-                
-                <div class="policy-demo">
-# Default Market Policy (Rego)<br>
-package omega.allocations<br><br>
-default allow = false<br><br>
-allow {<br>
-&nbsp;&nbsp;input.subject.org_id ==<br>
-&nbsp;&nbsp;input.resource.bookrunner_org_id<br>
-}
-                </div>
-            </div>
-
-            <div class="card">
-                <h2><span class="pillar-icon access">🔐</span>Access Layer</h2>
-                <p>Participants maintain granular control over their data through Access Control Lists, overriding market defaults when needed.</p>
-                
-                <div class="policy-demo">
-// Custom ACL Override<br>
-{<br>
-&nbsp;&nbsp;"resource": "DEAL_2024_001",<br>
-&nbsp;&nbsp;"type": "allow_list",<br>
-&nbsp;&nbsp;"permissions": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"BlackRock", "Vanguard"<br>
-&nbsp;&nbsp;]<br>
-}
-                </div>
-            </div>
-
-            <div class="card" style="grid-column: 1 / -1;">
-                <h2 style="color: black; background: none; -webkit-text-fill-color: black;">📊 System Diagram</h2>
-                <p>Visual representation of the OMEGA Protocol architecture and data flows.</p>
-                
-                <div style="background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 30px; text-align: center; margin-top: 20px; color: #495057;">
-                    <p><strong>OMEGA Protocol System Architecture</strong></p>
-                    <p style="margin: 10px 0; font-size: 0.9rem; color: #6c757d;">
-                        <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-04.png?raw=true" alt="OMEGA Protocol System Architecture" width="100%" style="max-width: 800px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    </p>
-                    <p style="font-size: 0.8rem; font-style: italic; color: #6c757d;">
-                        External images may be restricted in this environment. 
-                        <br>Copy this HTML to your own environment to display the image.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card workflow-demo">
-                <h2 style="color: black; background: none; -webkit-text-fill-color: black;">🔄 Authorization Workflow</h2>
-                <p>See how a third-party application gets authorized to access OMEGA data through the FDX Consent Grant Flow.</p>
-                
-                <div class="workflow-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h4>App Initiation</h4>
-                        <p>User clicks "Connect to OMEGA" in SyndicatePro</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h4>Redirect</h4>
-                        <p>Redirect to OMEGA Access Grant Portal</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h4>Consent</h4>
-                        <p>User reviews and grants permissions</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h4>Authorization</h4>
-                        <p>App receives access token</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="interactive-section">
-            <h2>🎮 Interactive Policy Demo</h2>
-            <p>Test how OMEGA's policy engine evaluates access requests based on different scenarios.</p>
-            
-            <div class="controls">
-                <select id="organization">
-                    <option value="JPMorganChase">JPMorgan Chase (Bookrunner)</option>
-                    <option value="BlackRock">BlackRock (Buy-side)</option>
-                    <option value="Vanguard">Vanguard (Buy-side)</option>
-                    <option value="Fidelity">Fidelity (Unauthorized)</option>
-                </select>
-                
-                <select id="action">
-                    <option value="read">Read Deal Data</option>
-                    <option value="write">Write Allocation</option>
-                    <option value="create">Create New Deal</option>
-                </select>
-                
-                <select id="resource">
-                    <option value="DEAL_2024_001">Tesla Bond Deal (Private)</option>
-                    <option value="DEAL_2024_002">Apple Bond Deal (Public)</option>
-                </select>
-                
-                <button onclick="evaluatePolicy()">Evaluate Access</button>
-                <button onclick="simulateWorkflow()">Simulate Workflow</button>
-            </div>
-            
-            <div id="result" class="result-panel">
-                Select an organization, action, and resource to test the policy engine...
-            </div>
-            
-            <div id="workflow-visual" style="display: none;">
-                <h3>Data Flow Visualization</h3>
-                <div class="data-flow">
-                    <div class="entity">
-                        <strong>Application</strong><br>
-                        <span id="app-name">SyndicatePro</span>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="entity">
-                        <strong>OPA Engine</strong><br>
-                        <span id="policy-result">Evaluating...</span>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="entity">
-                        <strong>Exchange API</strong><br>
-                        <span id="api-result">Pending...</span>
-                    </div>
-                </div>
-            </div>
+            <a href="strategy/" class="page-card">
+                <div class="page-icon">🚀</div>
+                <h2 class="page-title">AirBooks Strategy</h2>
+                <p class="page-description">
+                    Our comprehensive strategy for rebuilding capital markets infrastructure while building best-in-class applications.
+                </p>
+                <ul class="page-features">
+                    <li>Two-part strategic approach</li>
+                    <li>Mission and vision overview</li>
+                    <li>Competitive advantages</li>
+                    <li>Market positioning</li>
+                </ul>
+                <div class="cta">View Strategy →</div>
+            </a>
         </div>
     </div>
-
-    <script>
-        // Mock data for the demo
-        const dealData = {
-            'DEAL_2024_001': {
-                name: 'Tesla Bond Deal',
-                bookrunner: 'JPMorganChase',
-                status: 'private',
-                allowList: ['BlackRock', 'Vanguard'],
-                amount: 500000000
-            },
-            'DEAL_2024_002': {
-                name: 'Apple Bond Deal',
-                bookrunner: 'GoldmanSachs',
-                status: 'public',
-                allowList: null,
-                amount: 1000000000
-            }
-        };
-
-        const organizations = {
-            'JPMorganChase': { type: 'bank', permissions: ['create', 'read', 'write'] },
-            'BlackRock': { type: 'buyside', permissions: ['read'] },
-            'Vanguard': { type: 'buyside', permissions: ['read'] },
-            'Fidelity': { type: 'buyside', permissions: ['read'] }
-        };
-
-        function evaluatePolicy() {
-            const org = document.getElementById('organization').value;
-            const action = document.getElementById('action').value;
-            const resource = document.getElementById('resource').value;
-            const resultDiv = document.getElementById('result');
-            
-            const deal = dealData[resource];
-            const orgData = organizations[org];
-            
-            let result = {
-                allowed: false,
-                reason: '',
-                className: 'error'
-            };
-            
-            // Simulate OPA policy evaluation
-            if (action === 'create' && orgData.type !== 'bank') {
-                result.reason = 'DENIED: Only banks can create deals';
-            } else if (deal.bookrunner === org) {
-                result.allowed = true;
-                result.reason = 'ALLOWED: Bookrunner has full access';
-                result.className = 'success';
-            } else if (deal.status === 'private' && deal.allowList && !deal.allowList.includes(org)) {
-                result.reason = 'DENIED: Not in deal allow list';
-            } else if (deal.status === 'public' && action === 'read') {
-                result.allowed = true;
-                result.reason = 'ALLOWED: Public deal, read access';
-                result.className = 'success';
-            } else if (action === 'write' && orgData.type !== 'bank') {
-                result.reason = 'DENIED: Only bookrunner can write allocations';
-            } else if (deal.allowList && deal.allowList.includes(org) && action === 'read') {
-                result.allowed = true;
-                result.reason = 'ALLOWED: In custom ACL allow list';
-                result.className = 'success';
-            } else {
-                result.reason = 'DENIED: Default policy blocks access';
-            }
-            
-            resultDiv.className = `result-panel ${result.className}`;
-            resultDiv.innerHTML = `
-                <h3>${result.allowed ? '✅ ACCESS GRANTED' : '❌ ACCESS DENIED'}</h3>
-                <p><strong>Organization:</strong> ${org}</p>
-                <p><strong>Action:</strong> ${action}</p>
-                <p><strong>Resource:</strong> ${deal.name}</p>
-                <p><strong>Policy Decision:</strong> ${result.reason}</p>
-                <div style="margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.1); border-radius: 6px;">
-                    <strong>Policy Evaluation Path:</strong><br>
-                    1. Check if user is bookrunner → ${deal.bookrunner === org ? 'YES' : 'NO'}<br>
-                    2. Check deal status → ${deal.status.toUpperCase()}<br>
-                    3. Check custom ACL → ${deal.allowList ? `[${deal.allowList.join(', ')}]` : 'None'}<br>
-                    4. Apply default market policy → ${result.allowed ? 'ALLOW' : 'DENY'}
-                </div>
-            `;
-        }
-
-        function simulateWorkflow() {
-            const workflowDiv = document.getElementById('workflow-visual');
-            const appName = document.getElementById('app-name');
-            const policyResult = document.getElementById('policy-result');
-            const apiResult = document.getElementById('api-result');
-            
-            workflowDiv.style.display = 'block';
-            
-            // Simulate workflow steps
-            appName.textContent = 'SyndicatePro';
-            policyResult.textContent = 'Evaluating...';
-            apiResult.textContent = 'Pending...';
-            
-            setTimeout(() => {
-                policyResult.textContent = 'Policy Check OK';
-                policyResult.style.color = '#28a745';
-            }, 1000);
-            
-            setTimeout(() => {
-                apiResult.textContent = 'Data Retrieved';
-                apiResult.style.color = '#28a745';
-            }, 2000);
-            
-            setTimeout(() => {
-                alert('Workflow Complete! The application successfully accessed OMEGA data through the three-pillar architecture.');
-            }, 2500);
-        }
-
-        // Initialize with a default evaluation
-        document.addEventListener('DOMContentLoaded', function() {
-            evaluatePolicy();
-        });
-    </script>
 </body>
 </html>
