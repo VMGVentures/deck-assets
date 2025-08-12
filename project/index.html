@@ -4,100 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Problem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                            950: '#0a0a0a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-            padding: 2rem;
-        }
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 40% 40%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                        #0a0a0a;
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .title {
-            text-align: center;
-            color: #1a202c;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-
-        .card-title {
-            font-size: 2rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, #ea580c, #f97316, #fb923c);
-            background-clip: text;
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            text-align: center;
+            background-clip: text;
         }
 
-        /* Accordion Styles */
-        .accordion-container {
-            width: 100%;
+        .card-glow {
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.1), 
+                        0 8px 32px rgba(0, 0, 0, 0.4),
+                        0 0 20px rgba(139, 92, 246, 0.05);
         }
 
-        .accordion-item {
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
+        .card-glow:hover {
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3), 
+                        0 20px 60px rgba(0, 0, 0, 0.6),
+                        0 0 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .accordion-glow {
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2), 
+                        0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .accordion-glow.active {
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.4), 
+                        0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+
+        .nav-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
             transition: all 0.3s ease;
         }
 
-        .accordion-item:last-child {
-            margin-bottom: 0;
+        .nav-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
-
-        .accordion-header {
-            padding: 1.5rem 4rem 1.5rem 1.5rem;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            width: 100%;
-            text-align: left;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .accordion-header:hover {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-        }
-
-        .accordion-header.active {
-            background: linear-gradient(135deg, #ea580c, #f97316);
-            color: white;
-        }
-
+    </style>
+</head>
+    <!-- <style>
         .accordion-header.active .accordion-title {
             background: none;
             background-clip: unset;
@@ -327,75 +312,65 @@
                 right: 1rem;
             }
         }
-    </style>
-</head>
-<body>
+        </style> -->
+<body class="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
     <!-- Navigation Dropdown -->
-    <div class="nav-dropdown">
-        <button class="nav-button" onclick="toggleNavMenu()">
+    <div class="fixed top-6 right-6 z-50">
+        <button class="bg-gradient-to-r from-violet-600 to-purple-600 text-white border-0 rounded-xl px-4 py-3 font-semibold cursor-pointer shadow-lg transition-all duration-300 flex items-center gap-2 hover:from-violet-500 hover:to-purple-500 hover:-translate-y-1" onclick="toggleNavMenu()">
             Project
-            <span class="nav-arrow">▼</span>
+            <span class="text-sm transition-transform duration-300" id="navArrow">▼</span>
         </button>
-        <div class="nav-menu" id="navMenu">
-            <a href="../" class="nav-item">Home</a>
-            <a href="../project/" class="nav-item current">Project</a>
-            <a href="../strategy/" class="nav-item">Strategy</a>
-            <a href="../protocol/" class="nav-item">Protocol</a>
+        <div class="nav-dropdown absolute top-full right-0 bg-gray-900/95 backdrop-blur-xl border border-gray-800 rounded-xl shadow-2xl min-w-48 mt-2" id="navMenu">
+            <a href="../" class="block px-4 py-3 text-gray-400 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Home</a>
+            <a href="../project/" class="block px-4 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white no-underline font-medium rounded-lg mx-2 my-1">Project</a>
+            <a href="../strategy/" class="block px-4 py-3 text-gray-400 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Strategy</a>
+            <a href="../protocol/" class="block px-4 py-3 text-gray-400 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Protocol</a>
         </div>
     </div>
 
-    <div class="container">
-        <h1 class="title">The Problem</h1>
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-center text-5xl md:text-6xl font-bold mb-16 text-violet-100 tracking-tight">The Problem</h1>
         
         <!-- First Card: Accordion with Images -->
-        <div class="card">
-            <div class="accordion-container">
-                <div class="accordion-item">
-                    <button class="accordion-header active" onclick="toggleAccordion(0)">
-                        <h3 class="accordion-title">Capital markets technology was not built for scale</h3>
-                        <span class="accordion-icon">▼</span>
+        <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 mb-8 card-glow">
+            <div class="space-y-4">
+                <div class="border border-gray-800 rounded-xl overflow-hidden accordion-glow">
+                    <button class="w-full px-6 py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-left flex items-center justify-between cursor-pointer transition-all duration-300 accordion-header active" onclick="toggleAccordion(0)">
+                        <h3 class="text-lg font-semibold flex-1 pr-4 leading-tight">Capital markets technology was not built for scale</h3>
+                        <span class="text-base transition-transform duration-300 accordion-icon">▼</span>
                     </button>
-                    <div class="accordion-content active" id="accordion-0">
-                        <div class="accordion-content-inner">
-                            <div style="width: 100%; text-align: center;">
-                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-01.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-                                <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
-                                    Image failed to load. The hosting service may be blocking embedding.
-                                </div>
+                    <div class="accordion-content active overflow-hidden transition-all duration-300" id="accordion-0" style="max-height: 1000px;">
+                        <div class="p-6 bg-gray-900/30">
+                            <div class="text-center">
+                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-01.jpeg?raw=true" alt="Capital markets technology scale diagram" class="max-h-96 mx-auto rounded-xl shadow-2xl">
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(1)">
-                        <h3 class="accordion-title">To engage with a Vendor today is to engage in their full technology stack</h3>
-                        <span class="accordion-icon">▼</span>
+                <div class="border border-gray-800 rounded-xl overflow-hidden accordion-glow">
+                    <button class="w-full px-6 py-4 bg-gray-800/50 hover:bg-gray-800 text-gray-100 text-left flex items-center justify-between cursor-pointer transition-all duration-300 accordion-header" onclick="toggleAccordion(1)">
+                        <h3 class="text-lg font-semibold flex-1 pr-4 leading-tight">To engage with a Vendor today is to engage in their full technology stack</h3>
+                        <span class="text-base transition-transform duration-300 accordion-icon">▼</span>
                     </button>
-                    <div class="accordion-content" id="accordion-1">
-                        <div class="accordion-content-inner">
-                            <div style="width: 100%; text-align: center;">
-                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-02.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-                                <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
-                                    Image failed to load. The hosting service may be blocking embedding.
-                                </div>
+                    <div class="accordion-content overflow-hidden transition-all duration-300" id="accordion-1" style="max-height: 0;">
+                        <div class="p-6 bg-gray-900/30">
+                            <div class="text-center">
+                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-02.jpeg?raw=true" alt="Capital markets technology scale diagram" class="max-h-96 mx-auto rounded-xl shadow-2xl">
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(2)">
-                        <h3 class="accordion-title">There was a brief attempt to organize the stack many years ago, but it still remained siloed</h3>
-                        <span class="accordion-icon">▼</span>
+                <div class="border border-gray-800 rounded-xl overflow-hidden accordion-glow">
+                    <button class="w-full px-6 py-4 bg-gray-800/50 hover:bg-gray-800 text-gray-100 text-left flex items-center justify-between cursor-pointer transition-all duration-300 accordion-header" onclick="toggleAccordion(2)">
+                        <h3 class="text-lg font-semibold flex-1 pr-4 leading-tight">There was a brief attempt to organize the stack many years ago, but it still remained siloed</h3>
+                        <span class="text-base transition-transform duration-300 accordion-icon">▼</span>
                     </button>
-                    <div class="accordion-content" id="accordion-2">
-                        <div class="accordion-content-inner">
-                            <div style="width: 100%; text-align: center;">
-                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-03.jpeg?raw=true" alt="Capital markets technology scale diagram" style="width: auto; max-height: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-                                <div style="display: none; padding: 2rem; background: #f8f9fa; border-radius: 12px; color: #666;">
-                                    Image failed to load. The hosting service may be blocking embedding.
-                                </div>
+                    <div class="accordion-content overflow-hidden transition-all duration-300" id="accordion-2" style="max-height: 0;">
+                        <div class="p-6 bg-gray-900/30">
+                            <div class="text-center">
+                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-03.jpeg?raw=true" alt="Capital markets technology scale diagram" class="max-h-96 mx-auto rounded-xl shadow-2xl">
                             </div>
                         </div>
                     </div>
@@ -404,31 +379,31 @@
         </div>
 
         <!-- Second Card: The Result -->
-        <div class="card">
-            <h2 class="card-title">The Result</h2>
-            <ul class="result-list">
-                <li class="result-item">
-                    <div class="result-title">Outsized Risk</div>
-                    <div class="result-description">Internal and external exposure to antiquated ecosystems</div>
-                </li>
+        <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+            <h2 class="text-3xl font-bold text-center mb-8 gradient-text">The Result</h2>
+            <div class="space-y-6">
+                <div class="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+                    <div class="text-xl font-bold text-gray-100 mb-3">Outsized Risk</div>
+                    <div class="text-gray-400 leading-relaxed">Internal and external exposure to antiquated ecosystems</div>
+                </div>
                 
-                <li class="result-item">
-                    <div class="result-title">Vendor Lock-In</div>
-                    <div class="result-description">Lack of alternatives leads to stagnant technology and high fees</div>
-                </li>
+                <div class="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+                    <div class="text-xl font-bold text-gray-100 mb-3">Vendor Lock-In</div>
+                    <div class="text-gray-400 leading-relaxed">Lack of alternatives leads to stagnant technology and high fees</div>
+                </div>
                 
-                <li class="result-item">
-                    <div class="result-title">Loss of Data Sovereignty</div>
-                    <div class="result-description">Participants don't always have technical ownership their most valuable asset</div>
-                </li>
+                <div class="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+                    <div class="text-xl font-bold text-gray-100 mb-3">Loss of Data Sovereignty</div>
+                    <div class="text-gray-400 leading-relaxed">Participants don't always have technical ownership their most valuable asset</div>
+                </div>
                 
-                <li class="result-item">
-                    <div class="result-title">Lack of Interoperability</div>
-                    <div class="result-description">Integration nightmares</div>
-                    <div class="result-description">Siloed data makes modern system integration expensive</div>
-                    <div class="result-description">Missed opportunity to harness innovation</div>
-                </li>
-            </ul>
+                <div class="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+                    <div class="text-xl font-bold text-gray-100 mb-3">Lack of Interoperability</div>
+                    <div class="text-gray-400 leading-relaxed mb-2">Integration nightmares</div>
+                    <div class="text-gray-400 leading-relaxed mb-2">Siloed data makes modern system integration expensive</div>
+                    <div class="text-gray-400 leading-relaxed">Missed opportunity to harness innovation</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -442,32 +417,44 @@
             const isCurrentlyActive = accordionHeaders[accordionIndex].classList.contains('active');
             
             // Close all accordions
-            accordionHeaders.forEach(header => header.classList.remove('active'));
-            accordionContents.forEach(content => content.classList.remove('active'));
+            accordionHeaders.forEach((header, index) => {
+                header.classList.remove('active');
+                header.classList.remove('from-violet-600', 'to-purple-600');
+                header.classList.add('bg-gray-800/50', 'hover:bg-gray-800');
+                accordionContents[index].style.maxHeight = '0';
+                accordionContents[index].classList.remove('active');
+            });
             
             // If the clicked accordion wasn't active, open it
             if (!isCurrentlyActive) {
                 accordionHeaders[accordionIndex].classList.add('active');
+                accordionHeaders[accordionIndex].classList.remove('bg-gray-800/50', 'hover:bg-gray-800');
+                accordionHeaders[accordionIndex].classList.add('from-violet-600', 'to-purple-600');
+                accordionContents[accordionIndex].style.maxHeight = '1000px';
                 accordionContents[accordionIndex].classList.add('active');
             }
         }
 
         function toggleNavMenu() {
-            const navButton = document.querySelector('.nav-button');
             const navMenu = document.getElementById('navMenu');
+            const navArrow = document.getElementById('navArrow');
             
-            navButton.classList.toggle('open');
-            navMenu.classList.toggle('open');
+            navMenu.classList.toggle('show');
+            if (navMenu.classList.contains('show')) {
+                navArrow.style.transform = 'rotate(180deg)';
+            } else {
+                navArrow.style.transform = 'rotate(0deg)';
+            }
         }
 
         // Close navigation menu when clicking outside
         document.addEventListener('click', function(event) {
-            const navDropdown = document.querySelector('.nav-dropdown');
+            const navDropdown = document.querySelector('.fixed.top-6.right-6');
             if (!navDropdown.contains(event.target)) {
-                const navButton = document.querySelector('.nav-button');
                 const navMenu = document.getElementById('navMenu');
-                navButton.classList.remove('open');
-                navMenu.classList.remove('open');
+                const navArrow = document.getElementById('navArrow');
+                navMenu.classList.remove('show');
+                navArrow.style.transform = 'rotate(0deg)';
             }
         });
     </script>

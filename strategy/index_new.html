@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBooks Strategy - Interactive Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                            950: '#0a0a0a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 40% 40%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                        #0a0a0a;
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-glow {
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.1), 
+                        0 8px 32px rgba(0, 0, 0, 0.4),
+                        0 0 20px rgba(139, 92, 246, 0.05);
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3), 
+                        0 20px 60px rgba(0, 0, 0, 0.6),
+                        0 0 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .nav-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body id="artifacts-component-root-html" class="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
+    <!-- Navigation Dropdown -->
+    <div class="fixed top-6 right-6 z-50">
+        <button class="bg-gradient-to-r from-violet-600 to-purple-600 text-white border-0 rounded-xl px-4 py-3 font-semibold cursor-pointer shadow-lg transition-all duration-300 flex items-center gap-2 hover:from-violet-500 hover:to-purple-500 hover:-translate-y-1" onclick="toggleNavMenu(event)">
+            Strategy
+            <span class="text-sm transition-transform duration-300" id="navArrow">▼</span>
+        </button>
+        <div class="nav-dropdown absolute top-full right-0 bg-gray-900/95 backdrop-blur-xl border border-gray-800 rounded-xl shadow-2xl min-w-48 mt-2" id="navMenu">
+            <a href="../" class="block px-4 py-3 text-gray-300 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Home</a>
+            <a href="../project/" class="block px-4 py-3 text-gray-300 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Project</a>
+            <a href="../strategy/" class="block px-4 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white no-underline font-medium rounded-lg mx-2 my-1">Strategy</a>
+            <a href="../protocol/" class="block px-4 py-3 text-gray-300 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Protocol</a>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text tracking-tight">AirBooks</h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-medium">Rebuilding Capital Markets Infrastructure</p>
+        </div>
+
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 flex items-center gradient-text">🎯 Our Mission</h2>
+            <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    AirBooks' mission is to rebuild the foundational infrastructure of capital markets to be <strong class="text-violet-400">open</strong>, <strong class="text-violet-400">competitive</strong>, and <strong class="text-violet-400">participant-controlled</strong> while simultaneously building <strong class="text-violet-400">best-in-class workflow applications</strong> that operate on it. We achieve this by catalyzing a new, open data exchange standard called OMEGA. Our ultimate success is measured by earning our customers' business through superior products, not by trapping them in a closed ecosystem.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+                <h3 class="text-2xl font-bold mb-4 flex items-center text-red-400">❌ The Current Problem</h3>
+                <p class="text-gray-300 mb-6">Capital markets operate on antiquated, monopolistic infrastructure that creates critical pain points:</p>
+                <ul class="space-y-3">
+                    <li class="text-gray-300"><strong class="text-red-400">Vendor Lock-In:</strong> Lack of alternatives leads to stagnant technology and high fees</li>
+                    <li class="text-gray-300"><strong class="text-red-400">Loss of Data Sovereignty:</strong> Participants don't own their most valuable asset</li>
+                    <li class="text-gray-300"><strong class="text-red-400">Failed Internal Solutions:</strong> Consortiums consistently fail due to lack of product expertise</li>
+                    <li class="text-gray-300"><strong class="text-red-400">Integration Nightmares:</strong> Siloed data makes modern system integration expensive</li>
+                </ul>
+            </div>
+            
+            <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+                <h3 class="text-2xl font-bold mb-4 flex items-center text-emerald-400">✅ The AirBooks Solution</h3>
+                <p class="text-gray-300 mb-6">We decouple foundational infrastructure from applications to create an open, competitive ecosystem:</p>
+                <ul class="space-y-3">
+                    <li class="text-gray-300"><strong class="text-emerald-400">Open Foundation:</strong> OMEGA protocol creates shared utility for all participants</li>
+                    <li class="text-gray-300"><strong class="text-emerald-400">Data Ownership:</strong> Firms retain absolute control over their data</li>
+                    <li class="text-gray-300"><strong class="text-emerald-400">Competitive Applications:</strong> Multiple vendors compete on product quality</li>
+                    <li class="text-gray-300"><strong class="text-emerald-400">No Lock-In:</strong> Customers always have choice and exit options</li>
+                    <li class="text-gray-300"><strong class="text-emerald-400">Innovation:</strong> We build best in class applications on top of OMEGA, plugging gaps that have plagued the market for years</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gradient-text">🚀 Our Two-Part Strategy</h2>
+            
+            <div class="flex flex-wrap gap-2 mb-8 bg-gray-800/30 p-2 rounded-xl">
+                <button class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-violet-600 to-purple-600 text-white" onclick="showTab('overview')" id="tab-overview">Strategy Overview</button>
+                <button class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-gray-300 hover:text-white hover:bg-gray-700/50" onclick="showTab('omega')" id="tab-omega">Part A: OMEGA Foundation</button>
+                <button class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-gray-300 hover:text-white hover:bg-gray-700/50" onclick="showTab('airbooks')" id="tab-airbooks">Part B: AirBooks Applications</button>
+            </div>
+
+            <div id="overview" class="tab-content">
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">Our strategy decouples the foundational infrastructure from the applications that run on it, creating a virtuous cycle of innovation and competition.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+                        <div class="text-4xl mb-4">🏗️</div>
+                        <h3 class="text-xl font-bold mb-3 text-violet-400">OMEGA Foundation</h3>
+                        <p class="text-gray-300">Open, shared utility for capital markets with participant-owned data and transparent governance</p>
+                    </div>
+                    <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+                        <div class="text-4xl mb-4">💼</div>
+                        <h3 class="text-xl font-bold mb-3 text-violet-400">AirBooks Applications</h3>
+                        <p class="text-gray-300">Best-in-class workflow applications that win through superior user experience and innovation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="omega" class="tab-content hidden">
+                <h3 class="text-2xl font-bold mb-4 text-violet-400">OMEGA - The Open Foundation</h3>
+                <p class="text-lg text-gray-300 mb-6 leading-relaxed">OMEGA is not an application; it is an open, shared utility for capital markets. It is a set of data contracts, APIs, and governance policies that form a common language for the industry.</p>
+                
+                <h4 class="text-xl font-semibold mb-4 text-emerald-400">Core Principles:</h4>
+                <ul class="space-y-3 mb-8">
+                    <li class="text-gray-300"><strong class="text-violet-400">Participant-Owned Data:</strong> Each firm retains absolute ownership and granular control over who can access their data and for what purpose.</li>
+                    <li class="text-gray-300"><strong class="text-violet-400">Governed by Participants:</strong> The rules of the exchange are transparent and managed by a consortium of its members.</li>
+                    <li class="text-gray-300"><strong class="text-violet-400">Built on Open Standards:</strong> The underlying data model is a robust, normalized synthesis of industry standards like FIBO, ISO 20022, and FIX.</li>
+                </ul>
+                
+                <div class="bg-emerald-900/20 border border-emerald-800 rounded-xl p-6 text-center">
+                    <p class="text-emerald-300 italic">
+                        As the creators, AirBooks will be the main operating entity to manage OMEGA on behalf of the Governance Board.
+                    </p>
+                </div>
+            </div>
+
+            <div id="airbooks" class="tab-content hidden">
+                <h3 class="text-2xl font-bold mb-4 text-violet-400">AirBooks - The Premier Application Suite</h3>
+                <p class="text-lg text-gray-300 mb-6 leading-relaxed">AirBooks will be the first and best "third-party" application provider building on the OMEGA standard.</p>
+                
+                <h4 class="text-xl font-semibold mb-4 text-emerald-400">Products in Development:</h4>
+                <ul class="space-y-3 mb-8">
+                    <li class="text-gray-300"><strong class="text-violet-400">AirBooks Allocations:</strong> Modern solution for bond deal allocation workflow</li>
+                    <li class="text-gray-300"><strong class="text-violet-400">AirBooks OMS:</strong> Buy-side order management system</li>
+                    <li class="text-gray-300"><strong class="text-violet-400">Future Applications:</strong> Expanding suite of workflow tools</li>
+                </ul>
+                
+                <div class="flex justify-center items-center relative h-48 mb-8">
+                    <div class="w-32 h-24 bg-gray-800 border-2 border-dashed border-gray-600 rounded-lg flex items-center justify-center absolute transform -rotate-6 shadow-lg">
+                        <span class="text-gray-500 text-sm">Image 1</span>
+                    </div>
+                    <div class="w-32 h-24 bg-gray-800 border-2 border-dashed border-gray-600 rounded-lg flex items-center justify-center absolute transform rotate-2 shadow-lg z-10">
+                        <span class="text-gray-500 text-sm">Image 2</span>
+                    </div>
+                    <div class="w-32 h-24 bg-gray-800 border-2 border-dashed border-gray-600 rounded-lg flex items-center justify-center absolute transform rotate-12 shadow-lg z-20">
+                        <span class="text-gray-500 text-sm">Image 3</span>
+                    </div>
+                </div>
+                
+                <h4 class="text-xl font-semibold mb-4 text-emerald-400">Our Competitive Advantage:</h4>
+                <div class="bg-emerald-900/20 border border-emerald-800 rounded-xl p-6 text-center">
+                    <p class="text-emerald-300 italic">
+                        We win by having a superior product, not a captive market. Because OMEGA is open, our customers always have a choice. This forces us to relentlessly focus on user experience and innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+            <h2 class="text-3xl font-bold mb-6 flex items-center gradient-text">🏆 Why This Model Wins</h2>
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">The AirBooks strategy creates sustainable competitive advantages for all participants in the ecosystem.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800/30 rounded-xl p-6 text-center border border-gray-700">
+                    <h4 class="text-lg font-bold mb-3 flex items-center justify-center text-violet-400">🔓 No Lock-In</h4>
+                    <p class="text-gray-300 text-sm">Customers can switch providers, forcing continuous innovation and competitive pricing</p>
+                </div>
+                
+                <div class="bg-gray-800/30 rounded-xl p-6 text-center border border-gray-700">
+                    <h4 class="text-lg font-bold mb-3 flex items-center justify-center text-violet-400">📊 Data Ownership</h4>
+                    <p class="text-gray-300 text-sm">Participants retain control of their most valuable asset - their data</p>
+                </div>
+                
+                <div class="bg-gray-800/30 rounded-xl p-6 text-center border border-gray-700">
+                    <h4 class="text-lg font-bold mb-3 flex items-center justify-center text-violet-400">🚀 Innovation Acceleration</h4>
+                    <p class="text-gray-300 text-sm">Open platform enables rapid development and deployment of new solutions</p>
+                </div>
+                
+                <div class="bg-gray-800/30 rounded-xl p-6 text-center border border-gray-700">
+                    <h4 class="text-lg font-bold mb-3 flex items-center justify-center text-violet-400">💰 Cost Reduction</h4>
+                    <p class="text-gray-300 text-sm">Competition drives down costs while improving quality and service</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('[id^="tab-"]').forEach(button => {
+                button.classList.remove('bg-gradient-to-r', 'from-violet-600', 'to-purple-600', 'text-white');
+                button.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-gray-700/50');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.remove('hidden');
+            
+            // Add active class to clicked button
+            const activeButton = document.getElementById(`tab-${tabName}`);
+            activeButton.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-gray-700/50');
+            activeButton.classList.add('bg-gradient-to-r', 'from-violet-600', 'to-purple-600', 'text-white');
+        }
+
+        function toggleNavMenu(event) {
+            event.stopPropagation();
+            const navMenu = document.getElementById('navMenu');
+            const navArrow = document.getElementById('navArrow');
+            
+            navMenu.classList.toggle('show');
+            if (navMenu.classList.contains('show')) {
+                navArrow.style.transform = 'rotate(180deg)';
+            } else {
+                navArrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Close navigation menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navDropdown = document.querySelector('.fixed.top-6.right-6');
+            if (!navDropdown.contains(event.target)) {
+                const navMenu = document.getElementById('navMenu');
+                const navArrow = document.getElementById('navArrow');
+                navMenu.classList.remove('show');
+                navArrow.style.transform = 'rotate(0deg)';
+            }
+        });
+    </script>
+
+</body>
+</html>

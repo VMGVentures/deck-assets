@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMEGA Protocol - Interactive Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                            950: '#0a0a0a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -12,10 +39,21 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 40% 40%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                        #0a0a0a;
+            color: #f3f4f6;
             min-height: 100vh;
+        }
+
+        p, li, span, div {
+            color: #d1d5db;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #f3f4f6;
         }
 
         .container {
@@ -26,7 +64,7 @@
 
         .header {
             text-align: center;
-            color: #333;
+            color: #f3f4f6;
             margin-bottom: 40px;
         }
 
@@ -34,11 +72,16 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 10px;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .header p {
             font-size: 1.2rem;
             opacity: 0.9;
+            color: #d1d5db;
         }
 
         .demo-grid {
@@ -49,20 +92,23 @@
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 25px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 4px 16px rgba(139, 92, 246, 0.1);
+            transition: transform 0.2s, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(139, 92, 246, 0.2);
         }
 
         .card h2 {
-            color: #4a9d4e;
-            background: linear-gradient(135deg, #4a9d4e 0%, #5fb562 50%, #4a9d4e 100%);
+            /* color: #a78bfa; */
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #7c3aed 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -80,22 +126,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            /* color: white; */
             font-weight: bold;
             font-size: 0.9rem;
         }
 
-        .exchange { background: #28a745; }
-        .governance { background: #007bff; }
-        .access { background: #ffc107; color: #333 !important; }
+        .exchange { background: rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.2); }
+        .governance { background: rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.2); }
+        .access { background: rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.2); }
 
         .architecture {
             grid-column: 1 / -1;
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 4px 16px rgba(139, 92, 246, 0.1);
         }
 
         .architecture-diagram {
@@ -108,20 +156,32 @@
         .pillar-box {
             padding: 20px;
             border-radius: 12px;
-            text-align: center;
+            text-align: left;
             position: relative;
         }
 
         .pillar-box h3 {
             margin-bottom: 15px;
-            color: white;
+            /* color: #f3f4f6; */
+            color: #a78bfa;
         }
 
         .pillar-details {
-            background: rgba(255,255,255,0.1);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 15px;
             border-radius: 8px;
             margin-top: 10px;
+        }
+
+        .pillar-details ul {
+            list-style: square;
+            padding-left: 20px;
+            font-size: .75em;
+        }
+
+        .pillar-details li {
+            margin-bottom: 5px;
         }
 
         .workflow-demo {
@@ -136,18 +196,21 @@
         }
 
         .step {
-            background: #f8f9fa;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #FF1493;
+            border-left: 4px solid #8b5cf6;
             position: relative;
+            color: #f3f4f6;
         }
 
         .step-number {
             position: absolute;
             top: -10px;
             left: -10px;
-            background: #FF1493;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
             width: 30px;
             height: 30px;
@@ -160,13 +223,17 @@
         }
 
         .policy-demo {
-            background: #1a1a1a;
-            color: #00ff00;
+            background: rgba(0, 0, 0, 0.2);
+            color: oklch(70.2% 0.183 293.541);
             padding: 20px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
+            font-size: .75em;
             margin: 20px 0;
             position: relative;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            /* overflow-y: visible;
+            overflow-x: scroll */
         }
 
         .policy-demo::before {
@@ -174,18 +241,20 @@
             position: absolute;
             top: -10px;
             left: 20px;
-            background: #1a1a1a;
+            background: rgba(0, 0, 0, 0.5);
             padding: 0 10px;
             font-size: 0.8rem;
-            color: #FF1493;
+            color: #8b5cf6;
         }
 
         .interactive-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 30px;
             margin-top: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 4px 16px rgba(139, 92, 246, 0.1);
         }
 
         .controls {
@@ -194,9 +263,26 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
+        .controls select {
+            padding: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #f3f4f6;
+            backdrop-filter: blur(10px);
+        }
+
+        .controls button {
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            backdrop-filter: blur(10px);
+        }
 
         button {
-            background: #FF1493;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -207,33 +293,45 @@
         }
 
         button:hover {
-            background: #e91e63;
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
         }
 
         button:disabled {
-            background: #ccc;
+            background: #6b7280;
             cursor: not-allowed;
             transform: none;
         }
 
         .result-panel {
-            background: #f8f9fa;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 8px;
             padding: 20px;
             margin-top: 20px;
             min-height: 100px;
+            color: #f3f4f6;
         }
 
-        .success { border-left: 4px solid #28a745; }
-        .error { border-left: 4px solid #dc3545; }
-        .info { border-left: 4px solid #17a2b8; }
+        .success { border-left: 4px solid #10b981; }
+        .error { border-left: 4px solid #ef4444; }
+        .info { border-left: 4px solid #8b5cf6; }
 
         select, input {
             padding: 10px;
-            border: 2px solid #e5e5e5;
+            border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 6px;
             font-size: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #f3f4f6;
+            backdrop-filter: blur(10px);
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #8b5cf6;
         }
 
         .data-flow {
@@ -242,22 +340,27 @@
             justify-content: space-between;
             margin: 20px 0;
             padding: 20px;
-            background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 8px;
         }
 
         .flow-arrow {
             font-size: 2rem;
-            color: #FF1493;
+            color: #8b5cf6;
         }
 
         .entity {
             text-align: center;
             padding: 15px;
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             min-width: 120px;
+            color: #f3f4f6;
         }
 
         @media (max-width: 768px) {
@@ -293,7 +396,7 @@
         }
 
         .nav-button {
-            background: linear-gradient(135deg, #ea580c, #f97316);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
             border: none;
             border-radius: 12px;
@@ -301,7 +404,7 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -309,9 +412,9 @@
         }
 
         .nav-button:hover {
-            background: linear-gradient(135deg, #ea580c, #f97316);
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
         }
 
         .nav-arrow {
@@ -327,10 +430,11 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             min-width: 180px;
             opacity: 0;
             visibility: hidden;
@@ -348,7 +452,7 @@
         .nav-item {
             display: block;
             padding: 0.75rem 1.25rem;
-            color: #374151;
+            color: #d1d5db;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s ease;
@@ -365,17 +469,18 @@
         }
 
         .nav-item:hover {
-            color: #ea580c;
+            color: #a78bfa;
+            background: rgba(139, 92, 246, 0.1);
             text-decoration: none;
         }
 
         .nav-item.current {
-            background: linear-gradient(135deg, #ea580c, #f97316);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
         }
 
         .nav-item.current:hover {
-            background: linear-gradient(135deg, #dc2626, #ea580c);
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white;
         }
     </style>
@@ -396,58 +501,85 @@
     </div>
 
     <div class="container">
-        <div class="header">
-            <h1><img src="../omegalogo.svg" width="200" height="auto" title="Omega"></h1>
-            <p><strong>O</strong>pen <strong>M</strong>arket <strong>E</strong>xchange, <strong>G</strong>overnance & <strong>A</strong>ccess</p>
+        <div class="header text-center">
+            <h1 class="mb-0 text-center"><img src="../omegalogo.svg" class="inline" width="300" height="auto" title="Omega"></h1>
+            <span class="text-sm text-gray-600">Open Market Exchange, Governance & Access</span>
         </div>
 
         <div class="architecture">
-            <h2>🏗️ Three-Pillar Architecture</h2>
+            <h2>
+                <svg class="w-6 h-6 inline-block mr-2 text-violet-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Three-Pillar Architecture
+            </h2>
             <p>OMEGA separates concerns into three distinct pillars, each with specific responsibilities for data sovereignty and access control.</p>
             
             <div class="architecture-diagram">
                 <div class="pillar-box exchange">
-                    <h3>📊 EXCHANGE</h3>
+                    <h3>
+                        <!-- <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                        </svg> -->
+                        EXCHANGE
+                    </h3>
                     <div class="pillar-details">
-                        <p><strong>Data Plane</strong></p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Exchange API</li>
-                            <li>Data Contracts</li>
-                            <li>Data Storage</li>
+                        <p class="text-gray-400">Data Plane</p>
+                        <ul style="text-align: left; margin-top: 10px;" class="text-gray-400">
+                            <li class="text-gray-400">Exchange API</li>
+                            <li class="text-gray-400">Data Contracts</li>
+                            <li class="text-gray-400">Data Storage</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="pillar-box governance">
-                    <h3>⚖️ GOVERNANCE</h3>
+                    <h3>
+                        <!-- <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg> -->
+                        GOVERNANCE
+                    </h3>
                     <div class="pillar-details">
-                        <p><strong>Central Control</strong></p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Identity Management</li>
-                            <li>Default Policies</li>
-                            <li>OPA Engine</li>
+                        <p class="text-gray-400">Central Control</p>
+                        <ul style="text-align: left; margin-top: 10px;" class="text-gray-400">
+                            <li class="text-gray-400">Identity Management</li>
+                            <li class="text-gray-400">Default Policies</li>
+                            <li class="text-gray-400">OPA Engine</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="pillar-box access">
-                    <h3>🔐 ACCESS</h3>
+                    <h3>
+                        <!-- <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                        </svg> -->
+                        ACCESS
+                    </h3>
                     <div class="pillar-details">
-                        <p><strong>Participant Control</strong></p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Grant Portal</li>
-                            <li>Access API</li>
-                            <li>Custom ACLs</li>
+                        <p class="text-gray-400">Participant Control</p>
+                        <ul style="text-align: left; margin-top: 10px;" class="text-gray-400">
+                            <li class="text-gray-400">Grant Portal</li>
+                            <li class="text-gray-400">Access API</li>
+                            <li class="text-gray-400">Custom ACLs</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="demo-grid">
-            <div class="card">
-                <h2><span class="pillar-icon exchange">📊</span>Exchange Layer</h2>
-                <p>The data plane handles all market data through standardized contracts. Every piece of information flows through the Exchange API with strict schema validation.</p>
+        <div class="demo-grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="card grid-cols-1">
+                <h2>
+                    <span class="pillar-icon exchange">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                        </svg>
+                    </span>
+                    Exchange Layer
+                </h2>
+                <p class="mb-8">The data plane handles all market data through standardized contracts. Every piece of information flows through the Exchange API with strict schema validation.</p>
                 
                 <div class="policy-demo">
 // Example Exchange Data Contract<br>
@@ -461,9 +593,16 @@
                 </div>
             </div>
 
-            <div class="card">
-                <h2><span class="pillar-icon governance">⚖️</span>Governance Layer</h2>
-                <p>Central policies define market-wide defaults. The OPA engine evaluates every request against these rules plus participant-specific overrides.</p>
+            <div class="card grid-cols-1">
+                <h2>
+                    <span class="pillar-icon governance">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </span>
+                    Governance Layer
+                </h2>
+                <p class="mb-8">Central policies define market-wide defaults. The OPA engine evaluates every request against these rules plus participant-specific overrides.</p>
                 
                 <div class="policy-demo">
 # Default Market Policy (Rego)<br>
@@ -476,9 +615,16 @@ allow {<br>
                 </div>
             </div>
 
-            <div class="card">
-                <h2><span class="pillar-icon access">🔐</span>Access Layer</h2>
-                <p>Participants maintain granular control over their data through Access Control Lists, overriding market defaults when needed.</p>
+            <div class="card grid-cols-1">
+                <h2>
+                    <span class="pillar-icon access">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                        </svg>
+                    </span>
+                    Access Layer
+                </h2>
+                <p class="mb-8">Participants maintain granular control over their data through Access Control Lists, overriding market defaults when needed.</p>
                 
                 <div class="policy-demo">
 // Custom ACL Override<br>
@@ -493,8 +639,13 @@ allow {<br>
             </div>
 
             <div class="card" style="grid-column: 1 / -1;">
-                <h2 style="color: black; background: none; -webkit-text-fill-color: black;">📊 System Diagram</h2>
-                <p>Visual representation of the OMEGA Protocol architecture and data flows.</p>
+                <h2>
+                    <!-- <svg class="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg> -->
+                    System Diagram
+                </h2>
+                <p class="text-gray-400">Visual representation of the OMEGA Protocol architecture and data flows.</p>
                 
                 <div style="background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 30px; text-align: center; margin-top: 20px; color: #495057;">
                     <p><strong>OMEGA Protocol System Architecture</strong></p>
@@ -505,8 +656,13 @@ allow {<br>
             </div>
 
             <div class="card workflow-demo">
-                <h2 style="color: black; background: none; -webkit-text-fill-color: black;">🔄 Authorization Workflow</h2>
-                <p>See how a third-party application gets authorized to access OMEGA data through the FDX Consent Grant Flow.</p>
+                <h2>
+                    <!-- <svg class="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 4l1.41 1.41L16.17 8.5 14.75 9.91 12 7.17 9.25 9.91 7.83 8.5l2.76-2.59L12 4zm0 16l-1.41-1.41L7.83 15.5 9.25 14.09 12 16.83l2.75-2.74 1.42 1.41-2.76 2.59L12 20z"/>
+                    </svg> -->
+                    Authorization Workflow
+                </h2>
+                <p class="text-gray-400">See how a third-party application gets authorized to access OMEGA data through the FDX Consent Grant Flow.</p>
                 
                 <div class="workflow-steps">
                     <div class="step">
@@ -533,11 +689,16 @@ allow {<br>
             </div>
         </div>
 
-        <div class="interactive-section">
-            <h2>🎮 Interactive Policy Demo</h2>
-            <p>Test how OMEGA's policy engine evaluates access requests based on different scenarios.</p>
+        <div class="card interactive-section">
+            <h2 class="text-xl mb-4">
+                <!-- <svg class="w-6 h-6 inline-block mr-2 text-violet-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M21,6H3A3,3 0 0,0 0,9V15A3,3 0 0,0 3,18H21A3,3 0 0,0 24,15V9A3,3 0 0,0 21,6M21,16H3A1,1 0 0,1 2,15V9A1,1 0 0,1 3,8H21A1,1 0 0,1 22,9V15A1,1 0 0,1 21,16M7,13A1,1 0 0,0 8,12A1,1 0 0,0 7,11A1,1 0 0,0 6,12A1,1 0 0,0 7,13M17,13A1,1 0 0,0 18,12A1,1 0 0,0 17,11A1,1 0 0,0 16,12A1,1 0 0,0 17,13Z"/>
+                </svg> -->
+                Interactive Policy Demo
+            </h2>
+            <p class="text-gray-400 mb-8">Test how OMEGA's policy engine evaluates access requests based on different scenarios.</p>
             
-            <div class="controls">
+            <div class="controls mb-8">
                 <select id="organization">
                     <option value="JPMorganChase">JPMorgan Chase (Bookrunner)</option>
                     <option value="BlackRock">BlackRock (Buy-side)</option>
@@ -560,12 +721,12 @@ allow {<br>
                 <button onclick="simulateWorkflow()">Simulate Workflow</button>
             </div>
             
-            <div id="result" class="result-panel">
+            <div id="result" class="result-panel mb-8">
                 Select an organization, action, and resource to test the policy engine...
             </div>
             
             <div id="workflow-visual" style="display: none;">
-                <h3>Data Flow Visualization</h3>
+                <h3 class="mt-8">Data Flow Visualization</h3>
                 <div class="data-flow">
                     <div class="entity">
                         <strong>Application</strong><br>
