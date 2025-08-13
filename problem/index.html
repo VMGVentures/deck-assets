@@ -317,12 +317,12 @@
     <!-- Navigation Dropdown -->
     <div class="fixed top-6 right-6 z-50">
         <button class="bg-gradient-to-r from-violet-600 to-purple-600 text-white border-0 rounded-xl px-4 py-3 font-semibold cursor-pointer shadow-lg transition-all duration-300 flex items-center gap-2 hover:from-violet-500 hover:to-purple-500 hover:-translate-y-1" onclick="toggleNavMenu()">
-            Project
+            Problem
             <span class="text-sm transition-transform duration-300" id="navArrow">▼</span>
         </button>
         <div class="nav-dropdown absolute top-full right-0 bg-gray-900/95 backdrop-blur-xl border border-gray-800 rounded-xl shadow-2xl min-w-48 mt-2" id="navMenu">
             <a href="../" class="block px-4 py-3 text-gray-400 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Home</a>
-            <a href="../project/" class="block px-4 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white no-underline font-medium rounded-lg mx-2 my-1">Project</a>
+            <a href="../problem/" class="block px-4 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white no-underline font-medium rounded-lg mx-2 my-1">Problem</a>
             <a href="../strategy/" class="block px-4 py-3 text-gray-400 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Strategy</a>
             <a href="../protocol/" class="block px-4 py-3 text-gray-400 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 hover:text-violet-400 hover:bg-gray-800/50">Protocol</a>
         </div>
@@ -341,8 +341,67 @@
                     </button>
                     <div class="accordion-content active overflow-hidden transition-all duration-300" id="accordion-0" style="max-height: 1000px;">
                         <div class="p-6 bg-gray-900/30">
-                            <div class="text-center">
-                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-01.jpeg?raw=true" alt="Capital markets technology scale diagram" class="max-h-96 mx-auto rounded-xl shadow-2xl">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                                <!-- Image Column -->
+                                <div class="text-center">
+                                    <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-01.jpeg?raw=true" alt="Capital markets technology scale diagram" class="mx-auto rounded-xl shadow-2xl">
+                                </div>
+                                
+                                <!-- Bullet Lists Column -->
+                                <div class="space-y-6">
+                                    <!-- Small, uncoordinated blocks -->
+                                    <div class="bg-gray-800/30 rounded-xl p-5 border border-gray-700">
+                                        <h4 class="text-lg font-semibold text-violet-400 mb-3">Small, uncoordinated blocks</h4>
+                                        <ul class="space-y-2 text-gray-300">
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>Too many disconnected products</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>Solutions chasing problems they cant solve</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>No interoperability: Product 'swivel-chairing'</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Sitting on Uncoordinated stacking of Blocks -->
+                                    <div class="bg-gray-800/30 rounded-xl p-5 border border-gray-700">
+                                        <h4 class="text-lg font-semibold text-violet-400 mb-3">Sitting on Uncoordinated stacking of Blocks</h4>
+                                        <ul class="space-y-2 text-gray-300">
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>No market-wide end-to-end solutions</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>No standardization</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>Stifling innovation at scale</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Sitting on Existential Risk -->
+                                    <div class="bg-gray-800/30 rounded-xl p-5 border border-gray-700">
+                                        <h4 class="text-lg font-semibold text-violet-400 mb-3">Sitting on Existential Risk</h4>
+                                        <ul class="space-y-2 text-gray-300">
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>Ultimate support is too concentrated</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-violet-400 mr-2">•</span>
+                                                <span>With High Risk of collapse</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -369,8 +428,65 @@
                     </button>
                     <div class="accordion-content overflow-hidden transition-all duration-300" id="accordion-2" style="max-height: 0;">
                         <div class="p-6 bg-gray-900/30">
-                            <div class="text-center">
-                                <img src="https://github.com/VMGVentures/deck-assets/blob/main/image-03.jpeg?raw=true" alt="Capital markets technology scale diagram" class="max-h-96 mx-auto rounded-xl shadow-2xl">
+                            <div class="text-center mb-8">
+                                <img src="../web123.svg" alt="Capital markets technology scale diagram" class="max-h-120 mx-auto rounded-xl shadow-2xl">
+                            </div>
+                            
+                            <!-- Three Column Layout -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                                <!-- Column 1 -->
+                                <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+                                    <ul class="space-y-3 text-gray-300">
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Analog Data Community</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Read-Only Data from central nodes</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Original "Build" world</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Column 2 -->
+                                <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+                                    <ul class="space-y-3 text-gray-300">
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Digital Data Monopoly</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Read & Write data from/to central nodes</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Current "Buy" world</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Column 3 -->
+                                <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+                                    <ul class="space-y-3 text-gray-300">
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Digital Data Community</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Read & Write across all nodes</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-violet-400 mr-2">•</span>
+                                            <span>Mix of Build & Buy</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
