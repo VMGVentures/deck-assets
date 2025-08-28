@@ -189,11 +189,11 @@ export default function Strategy() {
                 </ul>
 
                 <div className="text-center mb-8">
-                  <Image
+                  <img
                     src="/apps.png"
                     alt="AirBooks Applications Overview"
-                    width={800}
-                    height={400}
+                    // width={800}
+                    // height={400}
                     className="max-h-96 max-w-6xl mx-auto my-20 mb-16 rounded-xl shadow-2xl mb-8"
                   />
                 </div>
