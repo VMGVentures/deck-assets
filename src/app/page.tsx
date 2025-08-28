@@ -1,4 +1,3 @@
-import Navigation from '@/components/Navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -32,7 +31,7 @@ export default function Home() {
                   The Problem
                 </h2>
                 <p className="text-gray-400 leading-relaxed text-center mb-8">
-                  An in-depth analysis of the fundamental issues plaguing today's capital markets technology infrastructure.
+                  An in-depth analysis of the fundamental issues plaguing today&apos;s capital markets technology infrastructure.
                 </p>
                 <div className="bg-gradient-to-r from-violet-600 to-purple-600 text-white px-6 py-3 rounded-xl text-center font-semibold transition-all duration-300 group-hover:from-violet-500 group-hover:to-purple-500 button-glow">
                   Explore the Problem →

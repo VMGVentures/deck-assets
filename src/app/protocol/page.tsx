@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Navigation from '@/components/Navigation';
 import Image from 'next/image';
 
@@ -30,7 +30,7 @@ export default function Protocol() {
   const [workflowVisible, setWorkflowVisible] = useState(false);
   const [workflowStep, setWorkflowStep] = useState(0);
 
-  const dealData: Record<string, Deal> = {
+  const dealData: Record<string, Deal> = useMemo(() => ({
     'DEAL_2024_001': {
       name: 'Tesla Bond Deal (Private)',
       bookrunner: 'JPMorganChase',
@@ -39,53 +39,52 @@ export default function Protocol() {
     },
     'DEAL_2024_002': {
       name: 'Apple Bond Deal (Public)',
-      bookrunner: 'JPMorganChase',
-      status: 'public'
+      bookrunner: 'GoldmanSachs',
+      status: 'public',
+      allowList: undefined
     }
-  };
+  }), []);
 
-  const organizations: Record<string, Organization> = {
+  const organizations: Record<string, Organization> = useMemo(() => ({
     'JPMorganChase': { type: 'bank', permissions: ['create', 'read', 'write'] },
     'BlackRock': { type: 'buyside', permissions: ['read'] },
     'Vanguard': { type: 'buyside', permissions: ['read'] },
     'Fidelity': { type: 'buyside', permissions: ['read'] }
-  };
+  }), []);
 
-  const evaluatePolicy = () => {
+  const evaluatePolicy = useCallback(() => {
     const deal = dealData[selectedResource];
     const orgData = organizations[selectedOrg];
     
-    let result: PolicyResult = {
+    const policyDecision = {
       allowed: false,
       reason: '',
       className: 'error'
     };
-    
-    // Simulate OPA policy evaluation
     if (selectedAction === 'create' && orgData.type !== 'bank') {
-      result.reason = 'DENIED: Only banks can create deals';
+      policyDecision.reason = 'DENIED: Only banks can create deals';
     } else if (deal.bookrunner === selectedOrg) {
-      result.allowed = true;
-      result.reason = 'ALLOWED: Bookrunner has full access';
-      result.className = 'success';
+      policyDecision.allowed = true;
+      policyDecision.reason = 'ALLOWED: Bookrunner has full access';
+      policyDecision.className = 'success';
     } else if (deal.status === 'private' && deal.allowList && !deal.allowList.includes(selectedOrg)) {
-      result.reason = 'DENIED: Not in deal allow list';
+      policyDecision.reason = 'DENIED: Not in deal allow list';
     } else if (deal.status === 'public' && selectedAction === 'read') {
-      result.allowed = true;
-      result.reason = 'ALLOWED: Public deal, read access';
-      result.className = 'success';
+      policyDecision.allowed = true;
+      policyDecision.reason = 'ALLOWED: Public deal, read access';
+      policyDecision.className = 'success';
     } else if (selectedAction === 'write' && orgData.type !== 'bank') {
-      result.reason = 'DENIED: Only bookrunner can write allocations';
+      policyDecision.reason = 'DENIED: Only bookrunner can write allocations';
     } else if (deal.allowList && deal.allowList.includes(selectedOrg) && selectedAction === 'read') {
-      result.allowed = true;
-      result.reason = 'ALLOWED: In custom ACL allow list';
-      result.className = 'success';
+      policyDecision.allowed = true;
+      policyDecision.reason = 'ALLOWED: In custom ACL allow list';
+      policyDecision.className = 'success';
     } else {
-      result.reason = 'DENIED: Default policy blocks access';
+      policyDecision.reason = 'DENIED: Default policy blocks access';
     }
     
-    setPolicyResult(result);
-  };
+    setPolicyResult(policyDecision);
+  }, [selectedOrg, selectedAction, selectedResource, dealData, organizations]);
 
   const simulateWorkflow = () => {
     setWorkflowVisible(true);
@@ -100,7 +99,7 @@ export default function Protocol() {
 
   useEffect(() => {
     evaluatePolicy();
-  }, [selectedOrg, selectedAction, selectedResource]);
+  }, [selectedOrg, selectedAction, selectedResource, evaluatePolicy]);
 
   const deal = dealData[selectedResource];
 
@@ -252,12 +251,12 @@ allow = true {
           <div className="bg-gray-100 border-2 border-gray-300 rounded-lg p-8 text-center">
             <p className="font-bold text-gray-800">OMEGA Protocol System Architecture</p>
             <div className="mt-4">
-              <Image
+              <img
                 src="/image-04.png"
                 alt="OMEGA Protocol System Architecture"
-                width={800}
-                height={400}
-                className="max-h-96 mx-auto rounded-lg shadow-lg"
+                // width={800}
+                // height={400}
+                className="max-h-160 mx-auto rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -271,7 +270,7 @@ allow = true {
             <div className="bg-gray-800/40 border border-gray-700 border-l-4 border-l-violet-500 rounded-lg p-6 relative">
               <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-br from-violet-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
               <h4 className="font-bold text-gray-100 mb-2">App Initiation</h4>
-              <p className="text-gray-400 text-sm">User clicks "Connect to OMEGA" in SyndicatePro</p>
+              <p className="text-gray-400 text-sm">User clicks &quot;Connect to OMEGA&quot; in SyndicatePro</p>
             </div>
             <div className="bg-gray-800/40 border border-gray-700 border-l-4 border-l-violet-500 rounded-lg p-6 relative">
               <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-br from-violet-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>

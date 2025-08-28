@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
-import Image from 'next/image';
 
 export default function Problem() {
   const [activeAccordion, setActiveAccordion] = useState(0);
