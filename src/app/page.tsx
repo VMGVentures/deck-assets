@@ -1,9 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import AuthGate from '@/components/AuthGate';
 
 export default function Home() {
   return (
-    <div className="bg-gray-950 text-gray-100 antialiased">
+    <AuthGate>
+      <div className="bg-gray-950 text-gray-100 antialiased">
       <div className="max-w-7xl mx-auto px-6 py-16 flex flex-row items-center justify-center min-h-screen">
         <div>
           {/* Header Section */}
@@ -78,5 +82,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </AuthGate>
   );
 }

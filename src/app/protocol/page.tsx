@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Navigation from '@/components/Navigation';
 import Image from 'next/image';
+import AuthGate from '@/components/AuthGate';
 
 interface Deal {
   name: string;
@@ -104,10 +105,11 @@ export default function Protocol() {
   const deal = dealData[selectedResource];
 
   return (
-    <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
-      <Navigation currentPage="Protocol" />
+    <AuthGate>
+      <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
+        <Navigation currentPage="Protocol" />
 
-      <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="mb-0 text-center">
             <Image
@@ -406,7 +408,8 @@ allow = true {
             </div>
           )}
         </div>
+        </div>
       </div>
-    </div>
+    </AuthGate>
   );
 }

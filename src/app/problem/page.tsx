@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
+import AuthGate from '@/components/AuthGate';
 
 export default function Problem() {
   const [activeAccordion, setActiveAccordion] = useState(0);
@@ -11,7 +12,8 @@ export default function Problem() {
   };
 
   return (
-    <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
+    <AuthGate>
+      <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
       <Navigation currentPage="Problem" />
 
       <div className="max-w-6xl mx-auto">
@@ -298,5 +300,6 @@ export default function Problem() {
         </div>
       </div>
     </div>
+    </AuthGate>
   );
 }

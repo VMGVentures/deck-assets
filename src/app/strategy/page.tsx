@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Image from 'next/image';
+import AuthGate from '@/components/AuthGate';
 
 export default function Strategy() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -12,7 +13,8 @@ export default function Strategy() {
   };
 
   return (
-    <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
+    <AuthGate>
+      <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
       <Navigation currentPage="Strategy" />
 
       <div className="max-w-7xl mx-auto">
@@ -247,5 +249,6 @@ export default function Strategy() {
         </div>
       </div>
     </div>
+    </AuthGate>
   );
 }
