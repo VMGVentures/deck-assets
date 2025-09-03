@@ -179,7 +179,7 @@ export default function Problem() {
                 onClick={() => toggleAccordion(2)}
               >
                 <h3 className="text-lg font-semibold flex-1 pr-4 leading-tight">
-                  As the pendulum swings back towards 'build' from 'buy', parallels of the transition to Web3 emerge
+                  As the pendulum swings back towards &lsquo;build&rsquo; from &lsquo;buy&rsquo;, parallels of the transition to Web3 emerge
                 </h3>
                 <span 
                   className="text-base transition-transform duration-300"
