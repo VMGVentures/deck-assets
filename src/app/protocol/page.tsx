@@ -123,6 +123,41 @@ export default function Protocol() {
           <span className="text-sm text-gray-600">Open Market Exchange, Governance & Access</span>
         </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+            <h3 className="text-2xl font-bold mb-4 flex items-center text-violet-400">
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+              The Current Problem
+            </h3>
+            <p className="text-gray-400 mb-6">Capital markets operate on antiquated, monopolistic infrastructure that creates critical pain points:</p>
+            <ul className="space-y-3">
+              <li className="text-gray-400"><strong className="text-violet-400">Vendor Lock-In:</strong> Lack of alternatives leads to stagnant technology and high fees</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Loss of Data Sovereignty:</strong> Participants don&apos;t own their most valuable asset</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Failed Internal Solutions:</strong> Consortiums consistently fail due to lack of product expertise</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Integration Nightmares:</strong> Siloed data makes modern system integration expensive</li>
+            </ul>
+          </div>
+          
+          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+            <h3 className="text-2xl font-bold mb-4 flex items-center text-violet-400">
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+              The Solution
+            </h3>
+            <p className="text-gray-400 mb-6">We decouple foundational infrastructure from applications to create an open, competitive ecosystem:</p>
+            <ul className="space-y-3">
+              <li className="text-gray-400"><strong className="text-violet-400">Open Foundation:</strong> OMEGA protocol creates shared utility for all participants</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Data Ownership:</strong> Firms retain absolute control over their data</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Competitive Applications:</strong> Multiple vendors compete on product quality</li>
+              <li className="text-gray-400"><strong className="text-violet-400">No Lock-In:</strong> Customers always have choice and exit options</li>
+              {/* <li className="text-gray-400"><strong className="text-violet-400">Innovation:</strong> We build best in class applications on top of OMEGA, plugging gaps that have plagued the market for years</li> */}
+            </ul>
+          </div>
+        </div>
+
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-4 flex items-center text-violet-400">
             <svg className="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">

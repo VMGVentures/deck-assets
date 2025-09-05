@@ -7,9 +7,28 @@ import AuthGate from '@/components/AuthGate';
 
 export default function Strategy() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [currentImage, setCurrentImage] = useState(0);
 
   const showTab = (tabName: string) => {
     setActiveTab(tabName);
+  };
+
+  const images = [
+    { src: '/screenshot1.png', alt: 'AirBooks Allocations Interface' },
+    { src: '/screenshot2.png', alt: 'AirBooks OMS Dashboard' },
+    { src: '/screenshot3.png', alt: 'AirBooks Future Applications' }
+  ];
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goToImage = (index: number) => {
+    setCurrentImage(index);
   };
 
   return (
@@ -28,11 +47,31 @@ export default function Strategy() {
               className="inline-block w-60 mr-3"
             />
           </h1>
-          <p className="text-sm md:text-sm text-gray-500 font-normal">Rebuilding Capital Markets Infrastructure</p>
+          <p className="text-md md:text-md text-gray-500 font-normal">Rebuilding Capital Markets Infrastructure</p>
         </div>
 
-        <div className="mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 grid-rows-1">
+
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
+            <h2 className="text-3xl font-bold mb-6 flex items-center gradient-text">
+              {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg> */}
+              The AirBooks Story
+            </h2>
+            <p className="text-lg text-gray-400 leading-relaxed mb-8">
+              After building solutions inside the biggest capital markets organizations for over a decade, the AirBooks team is finally stepping up to lead the market forward while solving the core underlying problems
+            </p>
+            <ul className="space-y-3">
+              <li className="text-gray-400"><strong className="text-violet-400">Ideal Experience:</strong> The AirBooks Team represents the highest pedigree, drawing from extensive experience in the primary capital markets, technology, design and data architecture</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Team Synergies:</strong> This experience culminates in creating solutions that are politically astute, technically elegant and driven by a strong product vision</li>
+              <li className="text-gray-400"><strong className="text-violet-400">First with OMEGA:</strong> As the architects of OMEGA, AirBooks is building products that will be the first applications on the protocol of the future</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Innovation:</strong> Building on the team's historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today's market</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Build from Within:</strong> AirBooks maintains core strategic partnerships to ensure the future of the markets are defined in collaboration with key participants</li>
+            </ul>
+          </div>
+
+          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow item-stretch">
             <h2 className="text-3xl font-bold mb-6 flex items-center gradient-text">
               {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -49,9 +88,10 @@ export default function Strategy() {
               is measured by earning our customers&apos; business through superior products, not by trapping them in a closed ecosystem.
             </p>
           </div>
+
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
             <h3 className="text-2xl font-bold mb-4 flex items-center text-red-400">
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +124,7 @@ export default function Strategy() {
               <li className="text-gray-400"><strong className="text-emerald-400">Innovation:</strong> We build best in class applications on top of OMEGA, plugging gaps that have plagued the market for years</li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-16">
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow margin-bottom-16">
@@ -188,20 +228,68 @@ export default function Strategy() {
                   <li><strong className="text-sky-400">Future Applications:</strong> Expanding suite of workflow tools</li>
                 </ul>
 
-                <div className="text-center mb-8">
-                  <img
-                    src="/apps.png"
-                    alt="AirBooks Applications Overview"
-                    // width={800}
-                    // height={400}
-                    className="max-h-96 max-w-6xl mx-auto my-20 mb-16 rounded-xl shadow-2xl mb-8"
-                  />
+                <div className="relative mb-8">
+                  {/* Carousel Container */}
+                  <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-800/30">
+                    <div className="relative h-96 md:h-[32rem]">
+                      <img
+                        src={images[currentImage].src}
+                        alt={images[currentImage].alt}
+                        className="w-full h-full object-contain rounded-xl"
+                      />
+                      
+                      {/* Navigation Arrows */}
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200 backdrop-blur-sm"
+                        aria-label="Previous image"
+                      >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200 backdrop-blur-sm"
+                        aria-label="Next image"
+                      >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* Dot Indicators */}
+                  <div className="flex justify-center mt-6 space-x-2">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => goToImage(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                          index === currentImage 
+                            ? 'bg-sky-400 scale-110' 
+                            : 'bg-gray-600 hover:bg-gray-500'
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Image Caption */}
+                  <div className="text-center mt-4">
+                    <p className="text-gray-400 text-sm">{images[currentImage].alt}</p>
+                    <p className="text-gray-500 text-xs mt-1">
+                      {currentImage + 1} of {images.length}
+                    </p>
+                  </div>
                 </div>
 
                 <h4 className="text-xl font-semibold mb-4 text-emerald-400">Our Competitive Advantage:</h4>
                 <div className="bg-emerald-900/20 border border-emerald-800 rounded-xl p-6 text-center">
                   <p className="text-emerald-300 italic">
-                    We win by having a superior product, not a captive market. Because OMEGA is open, our customers always have a choice. This forces us to relentlessly focus on user experience and innovation.
+                    We win by having a superior product, not by holding the market hostage. Because OMEGA is open, our customers always have a choice. This forces AirBooks to relentlessly focus on user experience and innovation, building best-in-class products.
                   </p>
                 </div>
               </div>
