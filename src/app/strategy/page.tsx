@@ -66,7 +66,7 @@ export default function Strategy() {
               <li className="text-gray-400"><strong className="text-violet-400">Ideal Experience:</strong> The AirBooks Team represents the highest pedigree, drawing from extensive experience in the primary capital markets, technology, design and data architecture</li>
               <li className="text-gray-400"><strong className="text-violet-400">Team Synergies:</strong> This experience culminates in creating solutions that are politically astute, technically elegant and driven by a strong product vision</li>
               <li className="text-gray-400"><strong className="text-violet-400">First with OMEGA:</strong> As the architects of OMEGA, AirBooks is building products that will be the first applications on the protocol of the future</li>
-              <li className="text-gray-400"><strong className="text-violet-400">Innovation:</strong> Building on the team's historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today's market</li>
+              <li className="text-gray-400"><strong className="text-violet-400">Innovation:</strong> Building on the team&apos;s historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today&apos;s market</li>
               <li className="text-gray-400"><strong className="text-violet-400">Build from Within:</strong> AirBooks maintains core strategic partnerships to ensure the future of the markets are defined in collaboration with key participants</li>
             </ul>
           </div>

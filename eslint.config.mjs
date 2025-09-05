@@ -20,6 +20,15 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // Make react/no-unescaped-entities an error instead of warning to match deployment
+      "react/no-unescaped-entities": "error",
+      // Make other common deployment failures into errors
+      "@next/next/no-img-element": "error",
+      "@typescript-eslint/no-unused-vars": "error",
+    },
+  },
 ];
 
 export default eslintConfig;
