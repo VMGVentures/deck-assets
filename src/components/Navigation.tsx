@@ -6,9 +6,10 @@ import { usePathname } from 'next/navigation';
 
 interface NavigationProps {
   currentPage: string;
+  color: string
 }
 
-export default function Navigation({ currentPage }: NavigationProps) {
+export default function Navigation({ currentPage, color='violet' }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -48,7 +49,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
   return (
     <div className="fixed top-6 right-6 z-50" ref={dropdownRef}>
       <button
-        className="bg-gradient-to-r from-violet-600 to-purple-600 text-white border-0 rounded-xl px-4 py-3 font-semibold cursor-pointer shadow-lg transition-all duration-300 flex items-center gap-2 hover:from-violet-500 hover:to-purple-500 hover:-translate-y-1"
+        className={`bg-gradient-to-r from-${color}-600 to-${color}-600 text-white border-0 rounded-xl px-4 py-3 font-semibold cursor-pointer shadow-lg transition-all duration-300 flex items-center gap-2 hover:from-${color}-500 hover:to-${color}-500 hover:-translate-y-1`}
         onClick={toggleMenu}
       >
         {getPageTitle()}
@@ -70,8 +71,8 @@ export default function Navigation({ currentPage }: NavigationProps) {
           href="/"
           className={`block px-4 py-3 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 ${
             pathname === '/'
-              ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white'
-              : 'text-gray-400 hover:text-violet-400 hover:bg-gray-800/50'
+              ? `bg-gradient-to-r from-${color}-600 to-${color}-600 text-white`
+              : `text-gray-400 hover:text-${color}-400 hover:bg-gray-800/50`
           }`}
         >
           Home
@@ -80,8 +81,8 @@ export default function Navigation({ currentPage }: NavigationProps) {
           href="/problem"
           className={`block px-4 py-3 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 ${
             pathname === '/problem'
-              ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white'
-              : 'text-gray-400 hover:text-violet-400 hover:bg-gray-800/50'
+              ? `bg-gradient-to-r from-${color}-600 to-${color}-600 text-white`
+              : `text-gray-400 hover:text-${color}-400 hover:bg-gray-800/50`
           }`}
         >
           Problem
@@ -90,8 +91,8 @@ export default function Navigation({ currentPage }: NavigationProps) {
           href="/strategy"
           className={`block px-4 py-3 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 ${
             pathname === '/strategy'
-              ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white'
-              : 'text-gray-400 hover:text-violet-400 hover:bg-gray-800/50'
+              ? `bg-gradient-to-r from-${color}-600 to-${color}-600 text-white`
+              : `text-gray-400 hover:text-${color}-400 hover:bg-gray-800/50`
           }`}
         >
           Strategy
@@ -100,8 +101,8 @@ export default function Navigation({ currentPage }: NavigationProps) {
           href="/protocol"
           className={`block px-4 py-3 no-underline font-medium transition-all duration-200 rounded-lg mx-2 my-1 ${
             pathname === '/protocol'
-              ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white'
-              : 'text-gray-400 hover:text-violet-400 hover:bg-gray-800/50'
+              ? `bg-gradient-to-r from-${color}-600 to-${color}-600 text-white`
+              : `text-gray-400 hover:text-${color}-400 hover:bg-gray-800/50`
           }`}
         >
           Protocol

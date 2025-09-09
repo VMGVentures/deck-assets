@@ -15,8 +15,8 @@ export default function Strategy() {
 
   const images = [
     { src: '/screenshot1.png', alt: 'AirBooks Allocations Interface' },
-    { src: '/screenshot2.png', alt: 'AirBooks OMS Dashboard' },
-    { src: '/screenshot3.png', alt: 'AirBooks Future Applications' }
+    { src: '/screenshot3.png', alt: 'AirBooks OMS Dashboard' },
+    { src: '/screenshot2.png', alt: 'AirBooks Future Applications' }
   ];
 
   const nextImage = () => {
@@ -34,7 +34,7 @@ export default function Strategy() {
   return (
     <AuthGate>
       <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
-      <Navigation currentPage="Strategy" />
+      <Navigation currentPage="Strategy" color="sky" />
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -50,29 +50,8 @@ export default function Strategy() {
           <p className="text-md md:text-md text-gray-500 font-normal">Rebuilding Capital Markets Infrastructure</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 grid-rows-1">
-
-          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gradient-text">
-              {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg> */}
-              The AirBooks Story
-            </h2>
-            <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              After building solutions inside the biggest capital markets organizations for over a decade, the AirBooks team is finally stepping up to lead the market forward while solving the core underlying problems
-            </p>
-            <ul className="space-y-3">
-              <li className="text-gray-400"><strong className="text-violet-400">Ideal Experience:</strong> The AirBooks Team represents the highest pedigree, drawing from extensive experience in the primary capital markets, technology, design and data architecture</li>
-              <li className="text-gray-400"><strong className="text-violet-400">Team Synergies:</strong> This experience culminates in creating solutions that are politically astute, technically elegant and driven by a strong product vision</li>
-              <li className="text-gray-400"><strong className="text-violet-400">First with OMEGA:</strong> As the architects of OMEGA, AirBooks is building products that will be the first applications on the protocol of the future</li>
-              <li className="text-gray-400"><strong className="text-violet-400">Innovation:</strong> Building on the team&apos;s historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today&apos;s market</li>
-              <li className="text-gray-400"><strong className="text-violet-400">Build from Within:</strong> AirBooks maintains core strategic partnerships to ensure the future of the markets are defined in collaboration with key participants</li>
-            </ul>
-          </div>
-
-          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow item-stretch">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gradient-text">
+          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow item-stretch mb-16">
+            <h2 className="text-3xl font-bold mb-6 flex items-center text-sky-400">
               {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg> */}
@@ -89,7 +68,24 @@ export default function Strategy() {
             </p>
           </div>
 
-        </div>
+          <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow mb-16">
+            <h2 className="text-3xl font-bold mb-6 flex items-center text-sky-400">
+              {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg> */}
+              The AirBooks Story
+            </h2>
+            <p className="text-lg text-gray-400 leading-relaxed mb-8">
+              After building solutions inside the biggest capital markets organizations for over a decade, the AirBooks team is finally stepping up to lead the market forward while solving the core underlying problems
+            </p>
+            <ul className="space-y-3">
+              <li className="text-gray-400"><strong className="text-sky-400">Ideal Experience:</strong> The AirBooks Team represents the highest pedigree, drawing from extensive experience in the primary capital markets, technology, design and data architecture</li>
+              <li className="text-gray-400"><strong className="text-sky-400">Team Synergies:</strong> This experience culminates in creating solutions that are politically astute, technically elegant and driven by a strong product vision</li>
+              <li className="text-gray-400"><strong className="text-sky-400">First with OMEGA:</strong> As the architects of OMEGA, AirBooks is building products that will be the first applications on the protocol of the future</li>
+              <li className="text-gray-400"><strong className="text-sky-400">Innovation:</strong> Building on the team&apos;s historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today&apos;s market</li>
+              <li className="text-gray-400"><strong className="text-sky-400">Build from Within:</strong> AirBooks maintains core strategic partnerships to ensure the future of the markets are defined in collaboration with key participants</li>
+            </ul>
+          </div>
 
         {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
@@ -128,7 +124,7 @@ export default function Strategy() {
 
         <div className="flex flex-col gap-16">
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow margin-bottom-16">
-            <h2 className="text-3xl font-bold mb-8 flex items-center gradient-text">
+            <h2 className="text-3xl font-bold mb-8 flex items-center text-sky-400">
               <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
@@ -297,7 +293,7 @@ export default function Strategy() {
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gradient-text">
+            <h2 className="text-3xl font-bold mb-6 flex items-center text-sky-400">
               Why This Model Wins
             </h2>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">

@@ -14,10 +14,10 @@ export default function Problem() {
   return (
     <AuthGate>
       <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
-      <Navigation currentPage="Problem" />
+      <Navigation currentPage="Problem" color="emerald" />
 
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-center text-5xl md:text-6xl font-bold mb-16 text-violet-100 tracking-tight">
+        <h1 className="text-center text-5xl md:text-6xl font-bold mb-16 text-emerald-100 tracking-tight">
           The Problem
         </h1>
         
@@ -28,7 +28,7 @@ export default function Problem() {
               <button
                 className={`w-full px-6 py-4 text-white text-left flex items-center justify-between cursor-pointer transition-all duration-300 accordion-header ${
                   activeAccordion === 0 
-                    ? 'bg-gradient-to-r from-violet-600 to-purple-600' 
+                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-600' 
                     : 'bg-gray-800/50 hover:bg-gray-800'
                 }`}
                 onClick={() => toggleAccordion(0)}
@@ -70,18 +70,18 @@ export default function Problem() {
                     <div className="space-y-6">
                       {/* Small, uncoordinated blocks */}
                       <div className="bg-gray-800/30 rounded-xl p-5 border border-gray-700">
-                        <h4 className="text-lg font-semibold text-violet-400 mb-3">Small, uncoordinated blocks</h4>
+                        <h4 className="text-lg font-semibold text-emerald-400 mb-3">Small, uncoordinated blocks</h4>
                         <ul className="space-y-2 text-gray-300">
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>Too many disconnected products</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>Solutions chasing problems they cant solve</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>No interoperability: Product &apos;swivel-chairing&apos;</span>
                           </li>
                         </ul>
@@ -89,18 +89,18 @@ export default function Problem() {
                       
                       {/* Sitting on Uncoordinated stacking of Blocks */}
                       <div className="bg-gray-800/30 rounded-xl p-5 border border-gray-700">
-                        <h4 className="text-lg font-semibold text-violet-400 mb-3">Sitting on Uncoordinated stacking of Blocks</h4>
+                        <h4 className="text-lg font-semibold text-emerald-400 mb-3">Sitting on Uncoordinated stacking of Blocks</h4>
                         <ul className="space-y-2 text-gray-300">
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>No market-wide end-to-end solutions</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>No standardization</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>Stifling innovation at scale</span>
                           </li>
                         </ul>
@@ -108,14 +108,14 @@ export default function Problem() {
                       
                       {/* Sitting on Existential Risk */}
                       <div className="bg-gray-800/30 rounded-xl p-5 border border-gray-700">
-                        <h4 className="text-lg font-semibold text-violet-400 mb-3">Sitting on Existential Risk</h4>
+                        <h4 className="text-lg font-semibold text-emerald-400 mb-3">Sitting on Existential Risk</h4>
                         <ul className="space-y-2 text-gray-300">
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>Ultimate support is too concentrated</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="text-violet-400 mr-2">•</span>
+                            <span className="text-emerald-400 mr-2">•</span>
                             <span>With High Risk of collapse</span>
                           </li>
                         </ul>
@@ -130,7 +130,7 @@ export default function Problem() {
               <button
                 className={`w-full px-6 py-4 text-gray-100 text-left flex items-center justify-between cursor-pointer transition-all duration-300 accordion-header ${
                   activeAccordion === 1 
-                    ? 'bg-gradient-to-r from-violet-600 to-purple-600' 
+                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-600' 
                     : 'bg-gray-800/50 hover:bg-gray-800'
                 }`}
                 onClick={() => toggleAccordion(1)}
@@ -173,7 +173,7 @@ export default function Problem() {
               <button
                 className={`w-full px-6 py-4 text-gray-100 text-left flex items-center justify-between cursor-pointer transition-all duration-300 accordion-header ${
                   activeAccordion === 2 
-                    ? 'bg-gradient-to-r from-violet-600 to-purple-600' 
+                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-600' 
                     : 'bg-gray-800/50 hover:bg-gray-800'
                 }`}
                 onClick={() => toggleAccordion(2)}
@@ -215,15 +215,15 @@ export default function Problem() {
                     <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
                       <ul className="space-y-3 text-gray-300">
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Analog Data Community</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Read-Only from central nodes</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Original &quot;Build&quot; world</span>
                         </li>
                       </ul>
@@ -233,15 +233,15 @@ export default function Problem() {
                     <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
                       <ul className="space-y-3 text-gray-300">
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Digital Data Monopoly</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Read & Write from/to central nodes</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Current &quot;Buy&quot; world</span>
                         </li>
                       </ul>
@@ -251,15 +251,15 @@ export default function Problem() {
                     <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
                       <ul className="space-y-3 text-gray-300">
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Digital Data Community</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Read & Write across all nodes</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-violet-400 mr-2">•</span>
+                          <span className="text-emerald-400 mr-2">•</span>
                           <span>Mix of Build & Buy</span>
                         </li>
                       </ul>
@@ -275,22 +275,22 @@ export default function Problem() {
         <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
           <h2 className="text-3xl font-bold text-center mb-8 gradient-text">The Result</h2>
           <div className="space-y-6">
-            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-emerald-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
               <div className="text-xl font-bold text-gray-100 mb-3">Outsized Risk</div>
               <div className="text-gray-400 leading-relaxed">Internal and external exposure to antiquated ecosystems</div>
             </div>
             
-            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-emerald-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
               <div className="text-xl font-bold text-gray-100 mb-3">Vendor Lock-In</div>
               <div className="text-gray-400 leading-relaxed">Lack of alternatives leads to stagnant technology and high fees</div>
             </div>
             
-            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-emerald-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
               <div className="text-xl font-bold text-gray-100 mb-3">Loss of Data Sovereignty</div>
               <div className="text-gray-400 leading-relaxed">Participants don&apos;t always have technical ownership their most valuable asset</div>
             </div>
             
-            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-violet-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
+            <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-emerald-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
               <div className="text-xl font-bold text-gray-100 mb-3">Lack of Interoperability</div>
               <div className="text-gray-400 leading-relaxed mb-2">Integration nightmares</div>
               <div className="text-gray-400 leading-relaxed mb-2">Siloed data makes modern system integration expensive</div>
