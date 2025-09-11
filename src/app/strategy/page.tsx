@@ -15,7 +15,7 @@ export default function Strategy() {
 
   const images = [
     { src: '/screenshot1.png', alt: 'AirBooks Allocations Interface' },
-    { src: '/screenshot3.png', alt: 'AirBooks OMS Dashboard' },
+    { src: '/screenshot3.png', alt: 'AirBooks OMS Add-On' },
     { src: '/screenshot2.png', alt: 'AirBooks Future Applications' }
   ];
 
@@ -34,11 +34,11 @@ export default function Strategy() {
   return (
     <AuthGate>
       <div className="bg-gray-950 text-gray-100 antialiased relative min-h-screen px-6 py-8">
-      <Navigation currentPage="Strategy" color="sky" />
+      <Navigation currentPage="Strategy" color="blue" />
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-semibold mb-4 text-sky-100 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-semibold mb-4 text-blue-100 tracking-tight">
             <Image 
               src="/ablogo.svg" 
               alt="AirBooks Logo" 
@@ -51,7 +51,7 @@ export default function Strategy() {
         </div>
 
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow item-stretch mb-16">
-            <h2 className="text-3xl font-bold mb-6 flex items-center text-sky-400">
+            <h2 className="text-3xl font-bold mb-6 flex items-center text-blue-400">
               {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg> */}
@@ -59,17 +59,17 @@ export default function Strategy() {
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed">
               AirBooks&apos; mission is to rebuild the foundational infrastructure of capital markets to be{' '}
-              <strong className="text-sky-400">open</strong>,{' '}
-              <strong className="text-sky-400">competitive</strong>, and{' '}
-              <strong className="text-sky-400">participant-controlled</strong> while simultaneously building{' '}
-              <strong className="text-sky-400">best-in-class workflow applications</strong> that operate on it. 
+              <strong className="text-gray-200">open</strong>,{' '}
+              <strong className="text-gray-200">competitive</strong>, and{' '}
+              <strong className="text-gray-200">participant-controlled</strong> while simultaneously building{' '}
+              <strong className="text-gray-200">best-in-class workflow applications</strong> that operate on it. 
               We achieve this by catalyzing a new, open data exchange standard called OMEGA. Our ultimate success 
               is measured by earning our customers&apos; business through superior products, not by trapping them in a closed ecosystem.
             </p>
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow mb-16">
-            <h2 className="text-3xl font-bold mb-6 flex items-center text-sky-400">
+            <h2 className="text-3xl font-bold mb-6 flex items-center text-blue-400">
               {/* <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg> */}
@@ -79,11 +79,11 @@ export default function Strategy() {
               After building solutions inside the biggest capital markets organizations for over a decade, the AirBooks team is finally stepping up to lead the market forward while solving the core underlying problems
             </p>
             <ul className="space-y-3">
-              <li className="text-gray-400"><strong className="text-sky-400">Ideal Experience:</strong> The AirBooks Team represents the highest pedigree, drawing from extensive experience in the primary capital markets, technology, design and data architecture</li>
-              <li className="text-gray-400"><strong className="text-sky-400">Team Synergies:</strong> This experience culminates in creating solutions that are politically astute, technically elegant and driven by a strong product vision</li>
-              <li className="text-gray-400"><strong className="text-sky-400">First with OMEGA:</strong> As the architects of OMEGA, AirBooks is building products that will be the first applications on the protocol of the future</li>
-              <li className="text-gray-400"><strong className="text-sky-400">Innovation:</strong> Building on the team&apos;s historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today&apos;s market</li>
-              <li className="text-gray-400"><strong className="text-sky-400">Build from Within:</strong> AirBooks maintains core strategic partnerships to ensure the future of the markets are defined in collaboration with key participants</li>
+              <li className="text-gray-400"><strong className="text-gray-200">Ideal Experience:</strong> The AirBooks Team represents the highest pedigree, drawing from extensive experience in the primary capital markets, technology, design and data architecture</li>
+              <li className="text-gray-400"><strong className="text-gray-200">Team Synergies:</strong> This experience culminates in creating solutions that are politically astute, technically elegant and driven by a strong product vision</li>
+              <li className="text-gray-400"><strong className="text-gray-200">First with OMEGA:</strong> As the architects of OMEGA, AirBooks is building products that will be the first applications on the protocol of the future</li>
+              <li className="text-gray-400"><strong className="text-gray-200">Innovation:</strong> Building on the team&apos;s historical track record of being key innovators in the market, AirBooks is creating solutions that fill massive gaps and solve key pain points in today&apos;s market</li>
+              <li className="text-gray-400"><strong className="text-gray-200">Build from Within:</strong> AirBooks maintains core strategic partnerships to ensure the future of the markets are defined in collaboration with key participants</li>
             </ul>
           </div>
 
@@ -124,7 +124,7 @@ export default function Strategy() {
 
         <div className="flex flex-col gap-16">
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow margin-bottom-16">
-            <h2 className="text-3xl font-bold mb-8 flex items-center text-sky-400">
+            <h2 className="text-3xl font-bold mb-8 flex items-center text-blue-400">
               <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
@@ -135,7 +135,7 @@ export default function Strategy() {
               <button 
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === 'overview' 
-                    ? 'bg-gradient-to-r from-sky-600 to-sky-600 text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                 }`}
                 onClick={() => showTab('overview')}
@@ -145,7 +145,7 @@ export default function Strategy() {
               <button 
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === 'omega' 
-                    ? 'bg-gradient-to-r from-sky-600 to-sky-600 text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                 }`}
                 onClick={() => showTab('omega')}
@@ -155,7 +155,7 @@ export default function Strategy() {
               <button 
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === 'airbooks' 
-                    ? 'bg-gradient-to-r from-sky-600 to-sky-600 text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                 }`}
                 onClick={() => showTab('airbooks')}
@@ -171,11 +171,11 @@ export default function Strategy() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
-                    <h3 className="text-xl font-bold mb-3 text-sky-400">OMEGA Foundation</h3>
+                    <h3 className="text-xl font-bold mb-3 text-gray-200">OMEGA Foundation</h3>
                     <p className="text-gray-400">Open, shared utility for capital markets with participant-owned data and transparent governance</p>
                   </div>
                   <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
-                    <h3 className="text-xl font-bold mb-3 text-sky-400">AirBooks Applications</h3>
+                    <h3 className="text-xl font-bold mb-3 text-gray-200">AirBooks Applications</h3>
                     <p className="text-gray-400">Best-in-class workflow applications that win through superior user experience and innovation</p>
                   </div>
                 </div>
@@ -184,26 +184,26 @@ export default function Strategy() {
 
             {activeTab === 'omega' && (
               <div className="tab-content">
-                <h3 className="text-2xl font-bold mb-4 text-sky-400">OMEGA - The Open Foundation</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400">OMEGA - The Open Foundation</h3>
                 <p className="text-lg text-gray-400 mb-6 leading-relaxed">
                   OMEGA is not an application; it is an open, shared utility for capital markets. It is a set of data contracts, APIs, and governance policies that form a common language for the industry.
                 </p>
                 
-                <h4 className="text-xl font-semibold mb-4 text-emerald-400">Core Principles:</h4>
+                <h4 className="text-xl font-semibold mb-4 text-blue-400">Core Principles:</h4>
                 <ul className="space-y-3 mb-8">
                   <li className="text-gray-400">
-                    <strong className="text-sky-400">Participant-Owned Data:</strong> Each firm retains absolute ownership and granular control over who can access their data and for what purpose.
+                    <strong className="text-gray-200">Participant-Owned Data:</strong> Each firm retains absolute ownership and granular control over who can access their data and for what purpose.
                   </li>
                   <li className="text-gray-400">
-                    <strong className="text-sky-400">Governed by Participants:</strong> The rules of the exchange are transparent and managed by a consortium of its members.
+                    <strong className="text-gray-200">Governed by Participants:</strong> The rules of the exchange are transparent and managed by a consortium of its members.
                   </li>
                   <li className="text-gray-400">
-                    <strong className="text-sky-400">Built on Open Standards:</strong> The underlying data model is a robust, normalized synthesis of industry standards like FIBO, ISO 20022, and FIX.
+                    <strong className="text-gray-200">Built on Open Standards:</strong> The underlying data model is a robust, normalized synthesis of industry standards like FIBO, ISO 20022, and FIX.
                   </li>
                 </ul>
 
-                <div className="bg-emerald-900/20 border border-emerald-800 rounded-xl p-6 text-center">
-                  <p className="text-emerald-300 italic">
+                <div className="bg-blue-950/20 border border-blue-900 rounded-xl p-6 text-center">
+                  <p className="text-blue-300 italic">
                     As the creators, AirBooks will be the main operating entity to manage OMEGA on behalf of the Governance Board.
                   </p>
                 </div>
@@ -212,16 +212,16 @@ export default function Strategy() {
 
             {activeTab === 'airbooks' && (
               <div className="tab-content">
-                <h3 className="text-2xl font-bold mb-4 text-sky-400">AirBooks - The Premier Application Suite</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400">AirBooks - The Premier Application Suite</h3>
                 <p className="text-lg text-gray-400 mb-6 leading-relaxed">
                   AirBooks will be the first and best &quot;third-party&quot; application provider building on the OMEGA standard.
                 </p>
                 
-                <h4 className="text-xl font-semibold mb-4 text-emerald-400">Products in Development:</h4>
+                <h4 className="text-xl font-semibold mb-4 text-blue-400">Products in Development:</h4>
                 <ul className="space-y-3 mb-8 text-gray-400">
-                  <li><strong className="text-sky-400">AirBooks Allocations:</strong> Modern solution for bond deal allocation workflow</li>
-                  <li><strong className="text-sky-400">AirBooks OMS:</strong> Buy-side order management system</li>
-                  <li><strong className="text-sky-400">Future Applications:</strong> Expanding suite of workflow tools</li>
+                  <li><strong className="text-gray-200">AirBooks Allocations:</strong> Modern solution for bond deal allocation workflow</li>
+                  <li><strong className="text-gray-200">AirBooks OMS Add-On:</strong> Buy-side primary order management system</li>
+                  <li><strong className="text-gray-200">Future Applications:</strong> Expanding suite of workflow tools</li>
                 </ul>
 
                 <div className="relative mb-8">
@@ -265,7 +265,7 @@ export default function Strategy() {
                         onClick={() => goToImage(index)}
                         className={`w-3 h-3 rounded-full transition-all duration-200 ${
                           index === currentImage 
-                            ? 'bg-sky-400 scale-110' 
+                            ? 'bg-blue-400 scale-110' 
                             : 'bg-gray-600 hover:bg-gray-500'
                         }`}
                         aria-label={`Go to image ${index + 1}`}
@@ -282,9 +282,9 @@ export default function Strategy() {
                   </div>
                 </div>
 
-                <h4 className="text-xl font-semibold mb-4 text-emerald-400">Our Competitive Advantage:</h4>
-                <div className="bg-emerald-900/20 border border-emerald-800 rounded-xl p-6 text-center">
-                  <p className="text-emerald-300 italic">
+                <h4 className="text-xl font-semibold mb-4 text-blue-400">Our Competitive Advantage:</h4>
+                <div className="bg-blue-950/20 border border-blue-900 rounded-xl p-6 text-center">
+                  <p className="text-blue-300 italic">
                     We win by having a superior product, not by holding the market hostage. Because OMEGA is open, our customers always have a choice. This forces AirBooks to relentlessly focus on user experience and innovation, building best-in-class products.
                   </p>
                 </div>
@@ -293,7 +293,7 @@ export default function Strategy() {
           </div>
 
           <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
-            <h2 className="text-3xl font-bold mb-6 flex items-center text-sky-400">
+            <h2 className="text-3xl font-bold mb-6 flex items-center text-blue-400">
               Why This Model Wins
             </h2>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
@@ -302,28 +302,28 @@ export default function Strategy() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-gray-800/30 rounded-xl p-6 text-left border border-gray-700">
-                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-sky-400">
+                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-gray-200">
                   No Lock-In
                 </h4>
                 <p className="text-gray-400 text-sm">Customers can switch providers, forcing continuous innovation and competitive pricing</p>
               </div>
               
               <div className="bg-gray-800/30 rounded-xl p-6 text-left border border-gray-700">
-                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-sky-400">
+                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-gray-200">
                   Data Ownership
                 </h4>
                 <p className="text-gray-400 text-sm">Participants retain control of their most valuable asset - their data</p>
               </div>
               
               <div className="bg-gray-800/30 rounded-xl p-6 text-left border border-gray-700">
-                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-sky-400">
+                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-gray-200">
                   Innovation Acceleration
                 </h4>
                 <p className="text-gray-400 text-sm">Open platform enables rapid development and deployment of new solutions</p>
               </div>
               
               <div className="bg-gray-800/30 rounded-xl p-6 text-left border border-gray-700">
-                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-sky-400">
+                <h4 className="text-lg font-bold mb-3 flex items-center justify-left text-gray-200">
                   Cost Reduction
                 </h4>
                 <p className="text-gray-400 text-sm">Competition drives down costs while improving quality and service</p>

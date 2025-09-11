@@ -273,7 +273,7 @@ export default function Problem() {
 
         {/* Second Card: The Result */}
         <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 card-glow">
-          <h2 className="text-3xl font-bold text-center mb-8 gradient-text">The Result</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-emerald-400">The Result</h2>
           <div className="space-y-6">
             <div className="p-6 bg-gray-800/30 rounded-xl border-l-4 border-emerald-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50">
               <div className="text-xl font-bold text-gray-100 mb-3">Outsized Risk</div>
