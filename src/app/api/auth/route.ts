@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getIronSession } from 'iron-session';
-import bcrypt from 'bcryptjs';
 import { sessionOptions, SessionData } from '@/lib/session';
 
 export async function POST(request: NextRequest) {
@@ -42,7 +41,7 @@ export async function POST(request: NextRequest) {
     await session.save();
 
     return response;
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Authentication failed' },
       { status: 500 }
@@ -58,7 +57,7 @@ export async function DELETE(request: NextRequest) {
     session.destroy();
     
     return response;
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Logout failed' },
       { status: 500 }

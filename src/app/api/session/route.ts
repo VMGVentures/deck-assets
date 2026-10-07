@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       isAuthenticated: session.isAuthenticated ?? defaultSession.isAuthenticated
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ isAuthenticated: false });
   }
 }

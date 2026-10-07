@@ -11,7 +11,7 @@ export function useAuth() {
       const response = await fetch('/api/session');
       const data = await response.json();
       setIsAuthenticated(data.isAuthenticated);
-    } catch (error) {
+    } catch {
       setIsAuthenticated(false);
     } finally {
       setIsLoading(false);
@@ -33,7 +33,7 @@ export function useAuth() {
         const data = await response.json();
         return { success: false, error: data.error };
       }
-    } catch (error) {
+    } catch {
       return { success: false, error: 'Authentication failed' };
     }
   };

@@ -158,7 +158,7 @@ export default function Problem() {
                 <div className="p-6 bg-gray-900/30">
                   <div className="text-center">
                     <img
-                      src="/image-02.jpeg"
+                      src="/image-02-edited.jpeg"
                       alt="Capital markets technology scale diagram"
                     //   width={400}
                     //   height={300}
